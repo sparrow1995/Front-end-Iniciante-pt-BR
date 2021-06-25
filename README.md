@@ -1,4 +1,4 @@
-# HTML-CSS-JS-pt-BR-Iniciante
+#  front-end para iniciantes
 
 Fazendo com o intuito além de ajudar iniciantes, aprender cada vez mais sobre o  desenvolvimento Front-end.
 
