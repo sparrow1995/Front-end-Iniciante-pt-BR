@@ -1,0 +1,644 @@
+/*----------Learn how the CSS @keyframes and animation--------------------/
+/------------------------Properties Work----------------------------------/
+/   Para animar um elemento, vc precisa saber sobre as propriedades de 	  /
+/  animação e a regra @keyframes. As propriedades de animação controlam   /
+/  como a animação deve se comportar e a regra @keyframes o que acontece  /
+/  durante essa animação. Existem oito propriedades de animação no total. /
+/    Esse desafio irá manter isso simples e cobrir as duas partes mais    /
+/                        importante primeiro:							  /
+/                                                                         /
+/  - animation-name: Define o nome da animação, que é depois usada por    /
+/   @keyframes para falar pro CSS que regra seguir com essas animações.   /
+/                                                                         /
+/    - animation-duration: Define o tamanho de tempo para a animação.     /
+/                                                                         /
+/  @keyframes: É como especificar exatamente oque acontece com a animação /
+/    sobre a duração. Isso é feito por dar propriedades CSS especificas   /
+/     "frames" durante a animação, com porcentagens indo de 0% a 100%.    /
+/  Se vc comparar isso com um filmte, as propriedades CSS para 0% é como  /
+/   o elemento mostra na cena de abertura. A propriedade CSS para 100% é  /
+/     como o elemento aparece no final, logo antes dos crédito rolar.     /
+/   Depois CSS aplica a magica para transição do elemento sobre a duração /
+/   para atuar na cena. Aqui um exemplo para ilustrar o uso do @keyframes /
+/						e a propriedade de animação:                      /
+/------------------------------------------------------------------------*/
+
+<style>
+	
+	#anim {
+	animation-name: colorful;
+	animation-duration: 3s;
+	}
+
+	@keyframes colorful {
+		
+		0% {
+			background-color: blue;
+		}
+
+		100% {
+			background-color: yellow;
+		}
+
+	}
+</style>
+
+/*----------------------------------------------------------------------/
+/ Para o elemento com o id "anim", o código fragmentado acima define o  /
+/ o nome da animação para colorful (animation-name) e define o tempo da /
+/     animação para 3 segundos. Depois a regra @keyframes linka a       /
+/ propriedade da animação com o nome colorful. E define a cor para azul /
+/   no começo da animação (0%) que irá tranzir para amarelo no fim da   /
+/  animação (100%). Vc não é limitado somente a transições do começo e  /
+/    fim, vc pode definir propriedades para o elemento para qualquer    /
+/                     porcentagem entre 0% e 100%                       /
+/----------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------/
+/       Usando animações CSS para mudar o Hover State de um botão       /
+/                                                                       /
+/   Vc pode usar CSS @keyframes para mudar a cor de um botão no seu     /
+/                         estado hover(hover state)                     /
+/                                                                       /
+/  Aqui um exemplo da mudança no width(largura) de uma imagem no hover: /
+/----------------------------------------------------------------------*/
+
+<style>
+	
+	img:hover {
+		animation-name: width;
+		animation-duration: 500ms;
+	}
+
+	@keyframes width {
+		100% {
+			width: 40px;
+		}
+	}
+
+</style>
+
+/*----------------------------------------------------------------------/
+/	 Note que "ms" é para milisegundos, onde 1000ms é igual a 1s.       /
+/----------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------/
+/   		    Modificando o modo preencher de uma animação            /
+/                                                                       /
+/ Isso é ótimo, mas não funciona direito ainda. Perceba como a animação /
+/  reseta depois que 500ms é passado, fazenod o botão voltar para a cor /
+/            original. Vc quer q o botão continue aceso.                /
+/                                                                       /
+/    Isso pode ser feito definindo a propriedade "animation-fill-mode"  /
+/ para "forwards". A "animation-fill-mode" especifica o estilo aplicado /
+/  para um elemento quando a animação termina. Vc pode defini-lo assim: /
+/----------------------------------------------------------------------*/
+
+<style>
+  button {
+    border-radius: 5px;
+    color: white;
+    background-color: #0F5897;
+    padding: 5px 10px 8px 10px;
+  }
+  button:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    /* Only change code below this line */
+    animation-fill-mode: forwards;
+    /* Only change code above this line */
+  }
+  @keyframes background-color {
+    100% {
+      background-color: #4791d0;
+    }
+  }
+</style>
+<button>Register</button>
+
+/*--------------------------------------------------------------------/
+/			 Criando movimento usando animação CSS                    /
+/        															  /
+/  Quando elemento tem uma "position" especificada, como "fixed" ou   /
+/   ou "relative", a propriedade CSS offset "right", "left", top e    /
+/ "bottom" pode ser usada numa regra de animação para criar movimento./
+/																	  /
+/ Como mostrado no exemplo abaixo, vc pode empurrar o item para baixo /
+/  depois para cima por definir a propriedade "top" de "50%" keyframe /
+/  para 50px, mas tendo definido 0px para o primeiro (0%) e o último  /
+/ 							   keyframe.							  /
+/--------------------------------------------------------------------*/
+
+@keyframes rainbow {
+
+	0% {
+		background-color: blue;
+		top: 0px;
+	}
+
+	50% {
+		background-color: green;
+		top: 50px;
+	}
+
+	100% {
+		background-color: yellow;
+		top: 0px;
+	}
+}
+
+/*---------------------------------------------------------------------/
+/   Crie Direção Visual por elemento Fading da Esquerda para Direita   /
+/																	   /
+/  Para esse desafio, vc irá mudar a "opacity" de um elemento animado  /
+/ então ele gradualmente desaparecem assim que alcançam o lado direito /
+/								 da tela.							   /
+/																	   /
+/ Na animação mostrada, o elemento arrendodado com um fundo gradiente  /
+/	 move-se para a direita para a marca 50% da animação por regra     /
+/								@keyframes.				   	 		   /
+/---------------------------------------------------------------------*/
+
+<style>
+
+  #ball {
+    width: 70px;
+    height: 70px;
+    margin: 50px auto;
+    position: fixed;
+    left: 20%;
+    border-radius: 50%;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    animation-name: fade;
+    animation-duration: 3s;
+  }
+
+  @keyframes fade {
+    50% {
+      left: 60%;
+      opacity: 0.1;
+    }
+  }
+
+</style>
+
+<div id="ball"></div>
+
+/*---------------------------------------------------------------------/
+/   Anime elementos continuamente usando uma contagem infinita de      /
+/								Animação							   /
+/																	   /
+/    O desafio papssado cobriu como usar algumas das propriedade       /
+/ de animação e a regra @keyframes. Outra propriedade de animação é a  /
+/ "animmation-iteration-count", que permite vc controlar quantas vezes /
+/	     vc quer para loopar pela animação. Aqui um exemplo:           /
+/---------------------------------------------------------------------*/
+
+animation-iteration-count: 3;
+
+/*---------------------------------------------------------------------/
+/	Nesse caso a animação irá parar de rodar após 3x, mas é possível   /
+/  para fazer a animação rodar continuamente por definir o valor para  /
+/  							    "infinito".							   /
+/---------------------------------------------------------------------*/
+
+<style>
+
+  #ball {
+    width: 100px;
+    height: 100px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes bounce{
+    0% {
+      top: 0px;
+    }
+    50% {
+      top: 249px;
+      width: 130px;
+      height: 70px;
+    }
+    100% {
+      top: 0px;
+    }
+  }
+</style>
+<div id="ball"></div>
+
+/*----------------------------------------------------------------------/
+/ Faça um batimento cardiaco CSS usando um contador de animação inifita /
+/																		/
+/Aqui mais uma vez continuamos um exemplo de animação com a propriedade /
+/ "animation-iteration-count" que usa o coração feito por vc no desafio /
+/ 								passado.								/
+/																		/
+/   O one-second long heartbeat animation consiste em dois pedades de   /
+/  animação. O elemento "heart" (incluindo as partes :before e :after)  /
+/  são animados para mudar o tamanho usando a propriedade "transform",  /
+/ e o fundo "div" é animado para modificar sua cor usando a propriedade /
+/							  "background".								/
+/----------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------/
+/ 			Anime elementos em taxas variáveis passadas					/
+/																		/
+/   Existem uma variedade de formas para alterar a taxas de animação    /
+/   similares a elementos animados. De longe, isso foi alcançado por    /
+/aplicando uma propriedade "animation-iteration-count" e definindo regra/
+/ 								@keyframes.								/
+/																		/
+/ Para ilustrar, a animação ao abaixo consiste de duas estrelas que cada/
+/uma abaixa no tamanho e opacidade na marca de 20% na regra @keyframes, /
+/ que cria a animação de centelha. Vc pode mudar a regra @keyframes por /
+/   uma de elemento então as estrelas centelham de taxas diferentes.    /
+/----------------------------------------------------------------------*/
+
+<style>
+  .stars {
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    animation-iteration-count: infinite;
+  }
+
+  .star-1 {
+    margin-top: 15%;
+    margin-left: 60%;
+    animation-name: twinkle-1;
+    animation-duration: 1s;
+  }
+
+  .star-2 {
+    margin-top: 25%;
+    margin-left: 25%;
+    animation-name: twinkle-2;
+    animation-duration: 1s;
+  }
+
+  @keyframes twinkle-1 {
+    50% {
+      transform: scale(0.5);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes twinkle-2 {
+    20% {
+      transform: scale(0.5);
+      opacity: 0.5;
+    }
+  }
+
+  #back {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
+  }
+</style>
+
+<div id="back"></div>
+<div class="star-1 stars"></div>
+<div class="star-2 stars"></div>
+
+/*---------------------------------------------------------------------/
+/		     Anime Múltiplos elementos em Taxas variáveis			   /
+/																	   /
+/ Em desafios passados, vc mudou taxas de animações para dois elementos/
+/   animados similarmente alterando suas regras @keyframes. Vc pode    /
+/   alcançar o mesmo objetivo manipulando a "animation-duration" de    /
+/                         multiplos elementos.                         /
+/																	   /
+/ Na animação rodando no editor de códigos, existem três estrelas que  /
+/  centelham na mesma taxa num loop continuo. Para faze-las centelhar  /
+/em taxas diferentes, vc pode definir a propriedade"animation-duration"/
+/            para valores diferentes para cada elemento.               /
+/---------------------------------------------------------------------*/
+
+<style>
+  .stars {
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    animation-iteration-count: infinite;
+  }
+
+  .star-1 {
+    margin-top: 15%;
+    margin-left: 60%;
+    animation-duration: 1s;
+    animation-name: twinkle;
+  }
+
+  .star-2 {
+    margin-top: 25%;
+    margin-left: 25%;
+    animation-duration: 0.9s;
+    animation-name: twinkle;
+  }
+
+  .star-3 {
+    margin-top: 10%;
+    margin-left: 50%;
+    animation-duration: 1.1s;
+    animation-name: twinkle;
+  }
+
+  @keyframes twinkle {
+    20% {
+      transform: scale(0.5);
+      opacity: 0.5;
+    }
+  }
+
+  #back {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
+  }
+</style>
+
+<div id="back"></div>
+<div class="star-1 stars"></div>
+<div class="star-2 stars"></div>
+<div class="star-3 stars"></div>
+
+/*----------------------------------------------------------------------/
+/ 			Mude a temporização da animação com keywords                /
+/																		/
+/  Em animações CSS, a propriedade "animation-timing-funtion" controla  /
+/    quão rapido o elemento animado muda sobre a duração da animação.   /
+/   Se a animação é um carro movendo-se do ponto A ao ponto B num dado  /
+/   tempo(animation-duration), a animation-timing-function fala como o  /
+/		 carro acelera e desacelera sobre o curso da pista.             /
+/																		/
+/  Existe um número de keywords predefinidas disponiveis para opções    /
+/ populares. Por exemplo, o valor padrão é "ease", que começa devagar,  /
+/   aumenta a velocidade no meio, e depois reduz novamente no final.    /
+/  Outra opção inclui "ease-out", que é rapido no começo depois reduz,  /
+/    "ease-in", que reduz no começo, depois acelera até o final, ou     /
+/     "linear", que aplica velocidade constante por toda a animação.    /
+/----------------------------------------------------------------------*/
+
+<style>
+
+  .balls {
+    border-radius: 50%;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  #ball1 {
+    left:27%;
+    animation-timing-function: linear;
+  }
+  #ball2 {
+    left:56%;
+    animation-timing-function: ease-out;
+  }
+
+  @keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    100% {
+      top: 249px;
+    }
+  }
+
+</style>
+
+<div class="balls" id="ball1"></div>
+<div class="balls" id="ball2"></div>
+
+/*----------------------------------------------------------------------/
+/				 Aprenda como funcionam Curvas de Bezier				/
+/																		/
+/ O último desafio apresentou a propriedade "animation-timing-function" /
+/  e algumas keywords que mudam a velocidade de uma animação sobre sua  /
+/ duração. CSS oferece uma opção diferente das keywords que apresentam  /
+/ controle melhor sobre como a animação faz, pelo uso de Bezier curves. /
+/																		/
+/Em animações CSS, Bezier curves são usadas com a função "cubic-bezier"./
+/ o corpo da curva representa como a animação aparece. A curva vive num /
+/ sistema de coordenada 1 por 1. O eixo-X desse sistema é a duração da  /
+/ animação(pense nisso como escala de tempo). E o eixo-Y é a mudança na /
+/ 								animação.								/
+/																		/
+/ A função "cubic-bezier" consiste em quatro pontos principais que ficam/
+/ nesta grade 1x1: p0, p1, p2, e p3. p0 e p3 são definidos por vc-eles  /
+/ são os pontos começo e fim que são sempre localizados respectivamente /
+/  na origem(0,0) e (1,1). Vc define os valores x e y para outros dois  /
+/    pontos, e onde vc colocar eles na grade dita o corpo da curva da   /
+/ animação para seguir. Isso é feito no CSS por declarar os valores x e /
+/ y de p1 e p2 pontos "ancora" nessa forma (x1, y1, x2, y2). Puxando-os /
+/   todos juntos, aqui um exemplo de uma curva Bezier em código CSS:    /
+/  																		/
+/ animation-timing-function: cubic-bezier(0.25,0.25,0.75,0.75);			/
+/																		/
+/ No exemplo acima, os valores de x e y são equivalente para cada ponto /
+/  (x1=0.25=y1 e x2=0.75=y2), que se vc lembrar das aulas de geometria, /
+/   resultam numa linha que extende da origem para o ponto(1,1). Essa   /
+/   animação é uma mudança linear de um elemento durante a duração de   /
+/  animação e é o mesmo que usar a keyword linear. Em outras palavras,  /
+/					 ela muda uma velocidade constante.					/
+/----------------------------------------------------------------------*/
+
+<style>
+
+  .balls{
+    border-radius: 50%;
+    background: linear-gradient(
+      35deg,
+      #ccffff,
+      #ffcccc
+    );
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  #ball1 {
+    left: 27%;
+    animation-timing-function: cubic-bezier(0.25,0.25,0.75,0.75);
+  }
+  #ball2 {
+    left: 56%;
+    animation-timing-function: ease-out;
+  }
+
+  @keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    100% {
+      top: 249px;
+    }
+  }
+
+</style>
+
+<div class="balls" id="ball1"></div>
+<div class="balls" id="ball2"></div>
+
+/*----------------------------------------------------------------------/
+/		    Usando  uma curva Bezier  para mover um gráfico             /
+/																		/
+/ Um desafio passado falou sobre a keyword "ease-out" que descreve uma  /
+/ mudança de animação que acelera primeiro e depois desacelera no final /
+/	 da animação. Na direita, a diferença entre a keyword "easy-out"    /
+/	   (para o elemento azul) e "linear"(para o elemento vermelho).     /
+/ Progressões de animações similares para a keyword "ease-out" pode ser /
+/	  alcançado por usar uma função cubic-Bezier curve customizada.		/
+/																		/
+/  Em geral, alterar os pontos de ancoragem p1 e p2 leva a criação de   /
+/ diferentes curvas de Bezier, que controlam como a animação progride ao/
+/   	longo do tempo. Aqui um exemplo de curva Bezier usando mimica:  /
+/ 																		/
+/ animation-timing-function: cubic-bezier(0, 0, 0.58, 1);				/
+/																		/
+/  Relembre que todas as funções "cubic-bezier" começa com p0 em (0,0)  /
+/  e final com p3 em (1,1). Nesse exemplo, a cura se move mais rápido   /
+/pelo eixo-Y(começa no 0, vai para o valor p1 y para 0, depois vai para /
+/   o valor p2 y de 1) depois isso move-se pelo eixo-X(0 para começar,  / 
+/	 depois 0 para p1, acelera para 0.58 para p2). Como resultado, a    /
+/  mudança no elemento animado progride mais rápido do que o tempo da   /
+/ animação para aquele segmento. Em direção ao fim da curva, a relação  /
+/ entre a mudança em valores reversos em x e y- o valor move de 1 para 1/
+/ (sem mudança), e o valor x move para 0.58 para 1, fazendo a animação  /
+/  mudar progresivamente devagar comparado para a duração da animação.  /
+/----------------------------------------------------------------------*/
+
+<style>
+  .balls{
+    border-radius: 50%;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  #red {
+    background: red;
+    left: 27%;
+    animation-timing-function: cubic-bezier(0,0,0.58,1);
+  }
+  #blue {
+    background: blue;
+    left: 56%;
+    animation-timing-function: ease-out;
+  }
+  @keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    100% {
+      top: 249px;
+    }
+  }
+</style>
+<div class="balls" id= "red"></div>
+<div class="balls" id= "blue"></div>
+
+/*----------------------------------------------------------------------/
+/         Faça movimento mais natural usando curva Bezier 				/
+/																		/
+/ Esse desafio anima um elemento para replicar o movimento de uma bola  /
+/     sendo malabarizada. Desafios anteriores cobriram as "linear"		/
+/ e "ease-out" cubic Bezier curves, contudo nenhuma descreve o movimento/
+/ de malabarismo com precisão. Vc precisa personalizar uma curva Bezier /
+/								 para isso.								/
+/																		/
+/ A "animation-timing-function" automaticamente loopa até todo keyframe /
+/ quando a "animation-iteration-count" é definido para infinito. Desde  /
+/ que exista uma regra keyframe definida no meio da duração da animação /
+/ (em 50%), isso resulta em duas animação identicas progrdindo de cima  /
+/					 para baixo movimentando a bola.					/
+/																		/
+/   A seguinte cubic Bezier curve simula um movimento de malabarismo:   /
+/																		/
+/ cubic-bezier(0.3,0.4,0.5,1.6);										/
+/																		/
+/ Perceba que o valor de y2 é mais que 1. Contudo a cubic Bezier curve é/
+/	 mapeada num sistema de coordenada 1 por 1, e isso pode aceitar 	/
+/	 somente vakires de 0 a 1 para x, o valor y pode ser definido para  /
+/ números maiores que um. Isso resulta no movimento de batimento que é  /
+/		 ideal para a simulação de bola de malabarismo.					/
+/----------------------------------------------------------------------*/
+
+<style>
+  .balls {
+    border-radius: 50%;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 60%;
+    animation-name: jump;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  #red {
+    background: red;
+    left: 25%;
+    animation-timing-function: linear;
+  }
+  #blue {
+    background: blue;
+    left: 50%;
+    animation-timing-function: ease-out;
+  }
+  #green {
+    background: green;
+    left: 75%;
+    animation-timing-function: cubic-bezier(0.311, 0.441, 0.444, 1.649);
+  }
+
+  @keyframes jump {
+    50% {
+      top: 10%;
+    }
+  }
+</style>
+<div class="balls" id="red"></div>
+<div class="balls" id="blue"></div>
+<div class="balls" id="green"></div>
