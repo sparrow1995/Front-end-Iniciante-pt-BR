@@ -1,0 +1,1608 @@
+/* Melhore a acessibilidade de conteudo de audio com o  /
+						audio elemento
+
+  O elemento audio do HTML5 da significado semantico quando
+ele fica em torno de sons ou stream de audio  na marcação do
+seu conteudo. Conteudo de audio tambem precisa de um texto
+alternativo para ser acessivel para pessoas surdas ou com
+problemas de audição. Isso pode ser feito com um texto prox.
+na pagina ou um link para a transcrição.
+
+A tag <audio> suporta o atributo "controls". Isso mostra ao
+browser o padrão play, pause e outros controles, e suportam
+funcionalidades do teclado. Ele é um atributo booleano, 
+isso significa que n precisa de um valor, sua presença na tag
+torna a definição para on.
+
+Aqui um exemplo: 
+
+<audio id="meowClip" controls>
+	<source src="audio/meow.mp3" type="audio/mpeg">
+	<source src="audio/meow.ogg" type="audio/ogg">
+</audio>
+
+NOTE: Conteudo multimidia geralmente  tem os dois componentes
+visual e audio. Ele precisa de legendas sincronizadas e a 
+transcrição, então assim usuarios com deficiencias auditivas
+ou visuais podem acessa-las. Geralmente, um dev n é responsavel
+pela criação de legendas ou transcrições, mas precisam saber
+para incluir elas. */
+
+<body>
+  <header>
+    <h1>Real Coding Ninjas</h1>
+  </header>
+  <main>
+    <p>A sound clip of Zersiax's screen reader in action.</p>
+    <audio controls>
+      <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg">
+    </audio>
+  </main>
+</body>
+
+/* Melhore a acessibilidade grafica com elemento <figure> /
+
+ HTML5 aprensentou o elemento <figure> e o relatado <figcaption>.
+Usados juntos, esses itens abraçam uma representação visual
+(como img, diagrama, ou graficos) junto com sua legenda.
+Agrupar esses elementos te da um impulso duplo na acessibilidade
+pela semantica relatada de conteudo e fornecendo um texto
+alternativo explicando a <figure>.
+
+ Para visualizações de dados como gráficos, o capition pode
+ser usado para notas breves ou conclusoes para usuarios com
+deficiencias visuais. Outro desafio abrange como mover uma
+versão de tabela dos dados do gráfico para fora da tela
+(usando CSS) para usuarios de leitores de tela.
+
+ Aqui um exemplo:
+
+<figrure>
+	<img src="roundhouseDestruction.jpeg" alt="Photo">
+	<br>
+	<figcaption>
+		Photo
+	</figcaption>
+</figure>		*/
+
+<body>
+  <header>
+    <h1>Training</h1>
+    <nav>
+      <ul>
+        <li><a href="#stealth">Stealth &amp; Agility</a></li>
+        <li><a href="#combat">Combat</a></li>
+        <li><a href="#weapons">Weapons</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+
+      <!-- Only change code below this line -->
+      <figure>
+        <!-- Stacked bar chart will go here -->
+        <br>
+        <figcaption>Breakdown per week of time to spend training in stealth, combat, and weapons.</figcaption>
+      </figure>
+      <!-- Only change code above this line -->
+
+    </section>
+    <section id="stealth">
+      <h2>Stealth &amp; Agility Training</h2>
+      <article><h3>Climb foliage quickly using a minimum spanning tree approach</h3></article>
+      <article><h3>No training is NP-complete without parkour</h3></article>
+    </section>
+    <section id="combat">
+      <h2>Combat Training</h2>
+      <article><h3>Dispatch multiple enemies with multithreaded tactics</h3></article>
+      <article><h3>Goodbye world: 5 proven ways to knock out an opponent</h3></article>
+    </section>
+    <section id="weapons">
+      <h2>Weapons Training</h2>
+      <article><h3>Swords: the best tool to literally divide and conquer</h3></article>
+      <article><h3>Breadth-first or depth-first in multi-weapon training?</h3></article>
+    </section>
+  </main>
+  <footer>&copy; 2018 Camper Cat</footer>
+</body>
+
+/* Melhore a acessibilidade campo de formulario /
+ 
+ Melhorando a acessibilidade com marcação de HTML semantica
+aplica para usar ambas apropriadas tag names e atributos.
+ Os proximos desafios cobriram alguns cenarios importantes
+usando atributos em formularios.
+
+ A tag <label> abraça o texto para um especifico controle
+de item de form, geralmente o nome ou label para uma 
+escolha. Esses laços significam para o item e fazer o form
+mais legivel. O atributo "for" numa tag <label> associa
+explicitamente o <label> com o controle de form e é usado
+por screen readers.
+
+<label for="...">
+	<input id="..." type="...">
+</label>
+
+/ Agrupe radio buttons em um elemento <fieldset> para 
+				melhor acessibilidade                  /
+
+ O proximo topico form cobre a acessibilidade do radio buttons.
+Cada escolha é dada a um <label> com um atributo "for" 
+digitando para o "id" correspondendo como  item coberto no
+ultimo desafio. Desde radio buttons muitas vezes vem em um
+grupo onde o usuario deve escolher um, existe formas para
+semanticamente mostrar escolhas como parte de um conjunto.
+
+ A tag <fieldset> em torno de um grupo inteiro de radio 
+buttons para alcançar isso. Muitas vezes usam uma tag <legend>
+para providenciar uma descrição para o grupo, que screen
+readers leem por cada escolha no elemento <fieldset>.
+
+ O <fieldset> agrupa e a tag <legend> não é necessaria quando
+as escolhas são auto-explicatorias, como genero. Usando
+<label for=""> para cada radio button é suficiente.
+
+Aqui um exemplo:
+
+<form>
+  <fieldset>
+    <legend>Choose one of these three items:</legend>
+    <input id="one" type="radio" name="items" value="one">
+    <label for="one">Choice One</label><br>
+    <input id="two" type="radio" name="items" value="two">
+    <label for="two">Choice Two</label><br>
+    <input id="three" type="radio" name="items" value="three">
+    <label for="three">Choice Three</label>
+  </fieldset>
+</form> 
+
+/ Adicione um Date Picker acessivel /
+
+ Forms muitas vezes incluem o campo <input>, que pode ser
+usado para criar muitos controles diferentes. o atributo
+"type" nesse elemento indica que tipo de elemento será 
+criado nesse <input>.
+
+ Vc pode ter percebido os tipos "text" e "submit" em desafios
+anteriores, e HTML5 apresentou uma opção para especificar
+um campo "date". Dependendo do browser suportar, um date
+picker mostrado emm um campo <input> quando ele é focado,
+que faz preencher em um form facil para todos os usuarios.
+
+ Para browsers antigos, o type será padrão para "text", então
+ele ajuda para mostrar o formato de data expectado no <label>
+ou "placeholder" texto somente no caso.
+
+Aqui um exemplo:
+
+<label for="input1">Enter a date:</label>
+<input type="date" id="input1" name="input1">
+
+/ Padronize Times com o atributo HTML "datetime" /
+
+ Continuando com o tema data, HTML5 também apresentou o 
+elemento "time" junto com um atributo "datetime" para 
+padronizar tempos. O elemento "time" é um elemento inline
+que pode agrupar uma data ou tempo numa pag. Um "datetime"
+atributo segura um formato valido dessa data. Esse é o
+valor acessado por dispositivos auxiliares. Ele ajuda a 
+remover confusão por afirmar um versão padronizada de tempo,
+mesmo se informalmente ou escrito de forma coloquial no text.
+
+Aqui um exemplo:
+
+<p> Blabla bla bla<time datetime="2021-06-26"> today </time>, bla bal.</p>
+
+/ Faça elementos serem visiveis somente para Screen Readers
+					Usando CSS personalizados
+
+ Vc percebeu q todas os desafios de aplicação de acessibilidade
+n usou qualquer CSS? Isso mostra a semantica significativas 
+tags em torno seu conteudo antes apresentando o apecto de
+design visual.
+
+ Contudo, a magica do CSS tb pode melhorar a acessibilidade
+na sua pag. quando vc precisa esconder visualmente conteudos
+para somente Screen Readers. Isso acontece quando a 
+informação é em um formato visual(como grafico), mas screen
+readers users precisam de uma apresentação alternativa
+(como uma tabela) para acessar esse dado.
+CSS é usado para posicionar o elemento somente para o screen
+reader fora da area visual da janela do browser.
+
+Aqui um exemplo:
+
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	top: auto;
+	overflow: hidden;
+}
+
+NOTE: As seguintes aproximações CSS não irão fazer a msm
+coisa:
+
+- "display: none;" ou "visibility: hidden;" esconde um 
+conteudo para todos, incluindo screen readers users.
+- Valores de 0px, como width:0px; height: 0px; remove o 
+elemento do fluxo do seu documento, significando q screen
+readers irão ignora-los.
+
+/ Melhore a Legibilidade com Texto de alto Contraste /
+
+ Low contrast entre as cores da frente e fundo podem fazer
+o texto ficar dificil de se ler. Constrate suficiente 
+melhora a legibilidade do seu conteudo, mas o que exatamente
+significa "suficiente"?
+
+ A Web Content Accessibility Guidelines (WCAG) recomenda no 
+minimo uma taxa de contraste de 4.5 para 1 para textos normais.
+A taxa é calculada comparando a luminecência relativa 
+dos valores de duas cores. Essa gama de 1:1 para o mesma
+cor, ou sem contraste, para 21:1 para branco contra preto,
+o mais substancial contraste. Existem muitas ferramentas
+de checagem de contraste disponiveis online que calculam
+essas taxas para vc.
+
+<head>
+  <style>
+  body {
+    color: #636363;
+    background-color: #FFF;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Deep Thoughts with Master Camper Cat</h1>
+  </header>
+  <article>
+    <h2>A Word on the Recent Catnip Doping Scandal</h2>
+    <p>The influence that catnip has on feline behavior is well-documented, and its use as an herbal supplement in competitive ninja circles remains controversial. Once again, the debate to ban the substance is brought to the public's attention after the high-profile win of Kittytron, a long-time proponent and user of the green stuff, at the Claw of Fury tournament.</p>
+    <p>As I've stated in the past, I firmly believe a true ninja's skills must come from within, with no external influences. My own catnip use shall continue as purely recreational.</p>
+  </article>
+</body>
+
+/ Remova problemas de daltonismo usando contraste suficiente /
+
+ Cor é a maior parte do design visual, mas ele apresenta
+dois problemas de acessibilidade. Primeiro, cor sozinha n
+será usada como a única forma de comunicar informações 
+importates pq screen readers user n os vê. Segundo, cores
+de frente e fundo precisam de constraste suficiente então
+users daltonicos podem destinguilas.
+
+ Desafios anteriores cobriram textos alternativos para 
+endereçar esse primeiro problema. O ultimo desafio apresentou
+ferramentas de checagem de constraste para ajudar com 
+segundo. o WCAG- recomenda uma taxa de contraste de 4.5:1
+aplicada para cor usada assim como combinações de escala-cinza.
+
+ Usuarios daltonicos tem problemas em distinguir algumas
+cores de outras-geralmente em hue mas as vezes brilho tb.
+Vc pode religar a taxa de contraste é calculada usando
+valores de luminecencia relativa(ou lightness) das cores
+da frente e do fundo.
+
+ Na prática, a taxa de contraste 4.5:1 pode ser alcançada
+por sombreamento(adicionando preto para) a cores escuras
+e tingimento(adicionando branco para) a cor mais clara.
+Sombreamentos escuros na roda de cor são considerados 
+sombreamentos de azul, violetas, magentas, e vermelho, 
+enquanto tigimento mais claros são laranjas, amarelos, verdes
+, e azul-verdeado.
+
+<head>
+  <style>
+  body {
+    color: hsl(0, 55%, 15%);
+    background-color: hsl(120, 25%, 55%);
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Deep Thoughts with Master Camper Cat</h1>
+  </header>
+  <article>
+    <h2>A Word on the Recent Catnip Doping Scandal</h2>
+    <p>The influence that catnip has on feline behavior is well-documented, and its use as an herbal supplement in competitive ninja circles remains controversial. Once again, the debate to ban the substance is brought to the public's attention after the high-profile win of Kittytron, a long-time proponent and user of the green stuff, at the Claw of Fury tournament.</p>
+    <p>As I've stated in the past, I firmly believe a true ninja's skills must come from within, with no external influences. My own catnip use shall continue as purely recreational.</p>
+  </article>
+</body>
+
+/ Acabando com problemas de Daltonismo por escolher 
+	cuidadosamente cores para passar a informação
+
+ Existem varias formas de daltonismo. Essa gama pode ser 
+reduzida sensitivamente para uma certa onda de luz para a 
+inabilidade de ver cores no geral. A forma mais comum é
+reduzida sensitivamente para detectar verdes.
+
+Por exmeplo, se dois tons similares de verde estão nas cores
+de frente e fundo do seu conteudo, o usuario daltonico pode
+n conseguir distinguilas. Escolha cores que podem ser vistas
+como vizinhas na roda de cor, e essas combinaçãoes devem
+ser removida quando passando uma informação importante.
+
+NOTE: Algumas ferramentas color picking online incluem
+simulações visuais de como as cores aparencem para diferente
+tipos de daltonismo. São otimos recusos em adição para 
+online constrast checking calculators.
+
+/ Faça links Navigaveis com HTML access keys /
+
+HTML oferece o atributo "accesskey" para especificar uma
+chave abreviada para ativar ou trazer foco para um elemento.
+Adicionando um atributo accesskey pode fazer a navegação
+mais eficiente para usuarios de teclado apenas.
+
+HTML5 permite que esse atributo seja usado em qualquer elemento,
+mas ele é particulamente mais util quando ele é usado com
+elementos interativos. Isso inclui links, butoes, e controles
+de forms.
+
+Aqui um exemplo:
+
+<button accesskey="b">Important Button</button>
+
+/ Uso do tabindex para adicionar Foco de keyboard para um
+						Elemento
+
+ O atributo HTML "tabindex" tem três funções distintas 
+relacionadas a um element's keyboard focus. Quando é numa
+tag, isso indica que aquele elemento pode ser focado on.
+O valor(um inteiro que pode ser positivo, negativo ou zero)
+dermina seu comportamento.
+
+ Certos elementos, como links e controles de forms, 
+ automaticamente recebem focos do keyboard quando um user
+ tabs por uma pag. Está na msm ordem em q os elementos vêm
+ na marcação de código-fonte HTML. Essa msm funcionalidade
+ pode ser dado para outros elementos, como "div", "span", e
+ "p", por colocar um atributo "tabindex='0'" neles. Aqui 
+ um exemplo:
+
+ <div tabindex="0">I need keyboard focus!</div>
+
+ NOTE: Um valor "tabindex" negativo (tipicamente -1) indica
+um elemento é focusável, mas não é alcançavel pelo keyboard.
+Esse método é geralmente usado para trazer foco para conteudo
+programaticamente(como quando um "div" é usado para um pop-up
+window é ativado), e é além o escopo desses desafios.
+
+<head>
+  <style>
+  p:focus {
+    background-color: yellow;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ninja Survey</h1>
+  </header>
+  <section>
+    <form>
+
+
+      <p tabindex="0">Instructions: Fill in ALL your information then click <b>Submit</b></p>
+
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br>
+      <fieldset>
+        <legend>What level ninja are you?</legend>
+        <input id="newbie" type="radio" name="levels" value="newbie">
+        <label for="newbie">Newbie Kitten</label><br>
+        <input id="intermediate" type="radio" name="levels" value="intermediate">
+        <label for="intermediate">Developing Student</label><br>
+        <input id="master" type="radio" name="levels" value="master">
+        <label for="master">9th Life Master</label>
+      </fieldset>
+      <br>
+      <fieldset>
+      <legend>Select your favorite weapons:</legend>
+      <input id="stars" type="checkbox" name="weapons" value="stars">
+      <label for="stars">Throwing Stars</label><br>
+      <input id="nunchucks" type="checkbox" name="weapons" value="nunchucks">
+      <label for="nunchucks">Nunchucks</label><br>
+      <input id="sai" type="checkbox" name="weapons" value="sai">
+      <label for="sai">Sai Set</label><br>
+      <input id="sword" type="checkbox" name="weapons" value="sword">
+      <label for="sword">Sword</label>
+      </fieldset>
+      <br>
+      <input type="submit" name="submit" value="Submit">
+    </form><br>
+  </section>
+  <footer>&copy; 2018 Camper Cat</footer>
+</body>
+
+/ Use tabindex para Especificar a ordem do foco do keyboard
+					para several Elementos
+
+ O atributo "tabindex" também especifica a exata ordem das
+dos elementos. Isso é alcançado quando o valor do atributo é
+deifinido para o número positivo de 1 ou maior.
+
+ Definindo um "tabindex='1'" irá trazer o foco do keyboard
+ para aquele elemento primeiro. Depois ele cicla pela 
+ sequencia dos valores especificados de "tabindex"(2,3,etc.),
+ antes movido para padrão e "tabindex='0'" items.
+
+ É importante para notar que quando a ordem da aba é definida
+dessa forma, ele sobrepõe a ordem padrão(que usa o HTML source).
+Isso pode confundir users que esperam começar a navegação
+pelo topo da pag. Essa técnica pode ser necessaria em 
+algumas circunstancias, mas em termos de acessibilidade, 
+tenha cuidado antes de aplica-las.
+
+Aqui um exemplo:
+
+<div tabindex="1">I get keyboard focus, and I get it first!</div>
+
+<div tabindex="2">I get keyboard focus, and I get it second!</div>
+
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>Even Deeper Thoughts with Master Camper Cat</h1>
+    <nav>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">Training</a></li>
+      </ul>
+    </nav>
+  </header>
+  <form>
+    <label for="search">Search:</label>
+
+
+    <input type="search" name="search" id="search" tabindex="1">
+    <input type="submit" name="submit" value="Submit" id="submit" tabindex="2">
+
+
+  </form>
+  <h2>Inspirational Quotes</h2>
+  <blockquote>
+    <p>&ldquo;There's no Theory of Evolution, just a list of creatures I've allowed to live.&rdquo;<br>
+    - Chuck Norris</p>
+  </blockquote>
+  <blockquote>
+    <p>&ldquo;Wise men say forgiveness is divine, but never pay full price for late pizza.&rdquo;<br>
+    - TMNT</p>
+  </blockquote>
+  <footer>&copy; 2018 Camper Cat</footer>
+</body>
+<style>
+  body {
+    height: 100%;
+    margin: 0 !important;
+    padding: 8px;
+  }
+  .overlay {
+    margin: -8px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+/ Crie um Media Query
+
+ Media Queries são uma nova tecnica introduzida em CSS3 q
+muda a apresentação de conteudo baseado diferente tamanhos
+de janelas de exibição. A janela de exibição é visivel para
+users na area da web page, e é diferente dependendo de em
+qual dispositivo é usado para acessar o site.
+
+ Media Queries consiste de um tipo de media, e se aquele
+tipo de media combina com o tipo do dispositivo o documento
+é mostrado, os estilos são aplicados. Vc pode ter quantos
+seletores e estilos vc quiser dentro da sua media query.
+
+ Aqui um exemplo de uma media query q retorna o conteudo
+quando a largura do dispositivo é menor que ou igual a
+100px:
+
+@media (max-width: 100px) { / CSS Rules / }
+
+e a media query seguinte retorna o conteudo quando a altura 
+do dispositivo é maior que ou igual a 350px:
+
+@media (min-height: 350px) { / CSS Rules / }
+
+Lembre, que CSS dentro de uma media query é aplicado somente
+se o tipo de media combinar com o do dispositivo que está
+sendo usado.
+
+/ Faça uma img Responsiva /
+
+ Fazer imagens responsivas com CSS é realmente mt simples.
+Vc só precisa adicionar essas propriedades para um img:
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+O max-width de  100% fará que a imagem nunca seja maior q
+o container dele, e a altura de "auto" fará a img manter a
+taxa de aspecto original.
+
+/ Use uma img retina para mostrar uma maior Resolução /
+ 
+ Com o aumento de dispositivos conectados a internet, seus
+tamanhos e especificações podem variar, e o seus displays
+podem ser diferentes externa e internamente. Pixel density
+é um aspecto que pode ser diferente em um dispositivo para
+outro e essa densidade é conhecida como Pixel Per Inch(PPI)
+ou Dots Per Inch(DPI). O mais famoso como display é um 
+conhecido como "Retina Display" no ultimo Apple MacBook Pro
+notebooks, e recentemente computadores iMac. Devido a 
+diferença em pixel density entre uma "Retina" e "Non-Retina"
+display, algumas imagens que não foram feitas com um 
+High-Resolution Display é pode ser visto como "pixelated"
+quando renderizado em um High-Resolution display.
+
+ A forma mais simples de fazer sua img aparecer apropriadamente
+em High-Resolution Displays, como uns MacBook Pros "retina
+display" é definir seus valores "width" e "height" como
+somente metade do que o arquivo original é. Aqui um exemplo:
+
+<style>
+	img {height: 250px; width: 250px;}
+</style>
+<img src="coolPic500x500" alt="...">
+
+/ Faça Tipografia Responsiva /
+
+ Invés de usar "em" ou "px" para aumentar o text, vc pode
+usar janela de exibição de unidades para responsive
+typography. Janelas de exibição de unidades, como porcentagens,
+são unidades relativas, mas eles são baseados em diferentes
+items. Viewport units são relativos para dimensãos viewport
+(width or height) de um dispositivo, e as porcentagens são
+relativas do tamanho do container pai do elemento.
+
+- "vm"(viewport width): '10vw' será 10% do viewport width.
+- "vh"(viewport height): '3vh' será 3% do viewport height.
+- "vmin"(viewport minimum): '70vmin' será 70% do viewport
+menor dimensão(height ou width).
+- "vmax"(viewport maximum): '100vmax' será 100% do viewport
+maior dimensão(height ou width).
+
+Aqui um exemplo q define um "body" para 30% do viewport 
+width:
+
+body {width: 30vw;}
+
+/ Use display: flex para Posicionar duas caixas /
+
+ Essa seção usa desafios alternando estilos para mostrar 
+como usar CSS para posicionar elementos em uma forma flexivel.
+Primeiro, um desafio ira explicar a teoria, depois um
+desafio pratico usando um simples componente tweet irá
+aplicar o conceito flexbox.
+
+ Colocando a propriedade CSS display: flex; em num elemento
+permite vc usar outras propriedades flex para construir uma
+pagina responsiva.
+
+<style>
+  #box-container {
+    height: 500px;
+    display: flex;
+  }
+
+  #box-1 {
+    background-color: dodgerblue;
+    width: 50%;
+    height: 50%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 50%;
+    height: 50%;
+  }
+</style>
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ Adicione Flex Superpowers para o Tweet Embed /
+
+ À direita está o tweet incorporado que será usado como um
+exemplo prático. Alguns dos elementos irão parecer melhor 
+com um layout diferente. O ultimo desafio demonstrado
+"display: flex;". Aqui vc irá adicionar-lo para muitos 
+componentes no tweet incorporado para começar a ajustar seu
+posicionamento.
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  header {
+    display: flex;
+  }
+  header .profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  header .profile-name {
+    display: flex;
+    margin-left: 10px;
+  }
+  header .follow-btn {
+    display: flex;
+    margin: 0 0 0 auto;
+  }
+  header .follow-btn button {
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  header h3, header h4 {
+    display: flex;
+    margin: 0;
+  }
+  #inner p {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  #inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+  }
+  footer {
+    display: flex;
+  }
+  footer .stats {
+    display: flex;
+    font-size: 15px;
+  }
+  footer .stats strong {
+    font-size: 18px;
+  }
+  footer .stats .likes {
+    margin-left: 10px;
+  }
+  footer .cta {
+    margin-left: auto;
+  }
+  footer .cta button {
+    border: 0;
+    background: transparent;
+  }
+</style>
+<header>
+  <img src="https://freecodecamp.s3.amazonaws.com/quincy-twitter-photo.jpg" alt="Quincy Larson's profile picture" class="profile-thumbnail">
+  <div class="profile-name">
+    <h3>Quincy Larson</h3>
+    <h4>@ossia</h4>
+  </div>
+  <div class="follow-btn">
+    <button>Follow</button>
+  </div>
+</header>
+<div id="inner">
+  <p>I meet so many people who are in search of that one trick that will help them work smart. Even if you work smart, you still have to work hard.</p>
+  <span class="date">1:32 PM - 12 Jan 2018</span>
+  <hr>
+</div>
+<footer>
+  <div class="stats">
+    <div class="Retweets">
+      <strong>107</strong> Retweets
+    </div>
+    <div class="likes">
+      <strong>431</strong> Likes
+    </div>
+  </div>
+  <div class="cta">
+    <button class="share-btn">Share</button>
+    <button class="retweet-btn">Retweet</button>
+    <button class="like-btn">Like</button>
+  </div>
+</footer>
+
+/ Use o flex-direction Property para mazer uma Linha /
+ 
+ Adicionar display:flex; para um elemento torna-o em um 
+container flex. Isso faz ser possivel para alinhar qualquer
+filho de q elemento em linhas ou colunas. Vc faz isso por
+adicionar a propriedade "flex-direction" para o pai item e 
+definindo ele para linha ou coluna. Criando uma linha irá
+alinhar horizontalmente, e criando uma coluna irá alinha o
+filho verticalmente.
+
+ Outras opções para "flex-direction" são "row-reverse" e 
+"column-reverse".
+
+NOTE: O valor padrão para a propriedade "flex-direction" é
+"row".
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+    flex-direction: row-reverse;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 50%;
+    height: 50%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 50%;
+    height: 50%;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/  Aplique a propriedade flex-direction para criar linhas
+				em um Tweet incorporado
+
+ O "header" e "footer" no exemplo tweet incorporado tem item
+filho que pode ser arranjado como linhas usando a propriedade
+"flex-direction". Isso fala pro CSS alinha o filho
+horizontalmente.
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+  header .profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  header .profile-name {
+    display: flex;
+    margin-left: 10px;
+  }
+  header .follow-btn {
+    display: flex;
+    margin: 0 0 0 auto;
+  }
+  header .follow-btn button {
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  header h3, header h4 {
+    display: flex;
+    margin: 0;
+  }
+  #inner p {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  #inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+  }
+  footer .stats {
+    display: flex;
+    font-size: 15px;
+  }
+  footer .stats strong {
+    font-size: 18px;
+  }
+  footer .stats .likes {
+    margin-left: 10px;
+  }
+  footer .cta {
+    margin-left: auto;
+  }
+  footer .cta button {
+    border: 0;
+    background: transparent;
+  }
+</style>
+<header>
+  <img src="https://freecodecamp.s3.amazonaws.com/quincy-twitter-photo.jpg" alt="Quincy Larson's profile picture" class="profile-thumbnail">
+  <div class="profile-name">
+    <h3>Quincy Larson</h3>
+    <h4>@ossia</h4>
+  </div>
+  <div class="follow-btn">
+    <button>Follow</button>
+  </div>
+</header>
+<div id="inner">
+  <p>I meet so many people who are in search of that one trick that will help them work smart. Even if you work smart, you still have to work hard.</p>
+  <span class="date">1:32 PM - 12 Jan 2018</span>
+  <hr>
+</div>
+<footer>
+  <div class="stats">
+    <div class="Retweets">
+      <strong>107</strong> Retweets
+    </div>
+    <div class="likes">
+      <strong>431</strong> Likes
+    </div>
+  </div>
+  <div class="cta">
+    <button class="share-btn">Share</button>
+    <button class="retweet-btn">Retweet</button>
+    <button class="like-btn">Like</button>
+  </div>
+</footer>
+
+/ Use a propriedade flex-direction para fazer uma Column /
+
+ Os últimos dois desafios usaram a propriedade flex-direction
+definidos para "row". Essa propriedade também pode criar
+uma coluna por empilhamento verticalmente de filhos de um
+container flex.
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 50%;
+    height: 50%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 50%;
+    height: 50%;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ Aplique a propriedade flex-direction para criar uma coluna
+					em um tweet incorporado
+
+ O tweet incorporado "header" e "footer" usou a propriedade
+"flex-direction" antes com o valor row. Similarmente, o item
+dentro o elemento ".profile-name" irá funciona bem acumulado
+como coluna.
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  header, footer {
+    display: flex;
+    flex-direction: row;
+  }
+  header .profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  header .profile-name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+  header .follow-btn {
+    display: flex;
+    margin: 0 0 0 auto;
+  }
+  header .follow-btn button {
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  header h3, header h4 {
+    display: flex;
+    margin: 0;
+  }
+  #inner p {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  #inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+  }
+  footer .stats {
+    display: flex;
+    font-size: 15px;
+  }
+  footer .stats strong {
+    font-size: 18px;
+  }
+  footer .stats .likes {
+    margin-left: 10px;
+  }
+  footer .cta {
+    margin-left: auto;
+  }
+  footer .cta button {
+    border: 0;
+    background: transparent;
+  }
+</style>
+<header>
+  <img src="https://freecodecamp.s3.amazonaws.com/quincy-twitter-photo.jpg" alt="Quincy Larson's profile picture" class="profile-thumbnail">
+  <div class="profile-name">
+    <h3>Quincy Larson</h3>
+    <h4>@ossia</h4>
+  </div>
+  <div class="follow-btn">
+    <button>Follow</button>
+  </div>
+</header>
+<div id="inner">
+  <p>I meet so many people who are in search of that one trick that will help them work smart. Even if you work smart, you still have to work hard.</p>
+  <span class="date">1:32 PM - 12 Jan 2018</span>
+  <hr>
+</div>
+<footer>
+  <div class="stats">
+    <div class="Retweets">
+      <strong>107</strong> Retweets
+    </div>
+    <div class="likes">
+      <strong>431</strong> Likes
+    </div>
+  </div>
+  <div class="cta">
+    <button class="share-btn">Share</button>
+    <button class="retweet-btn">Retweet</button>
+    <button class="like-btn">Like</button>
+  </div>
+</footer>
+
+/ Alinhe elementos usando a propriedade justify-content /
+
+ Algumas vezes o flex items com um flex container não
+preenche todos os espaços dentro do container. É comum 
+precisar para falar o CSS como alinha e espaçar o item flex
+uma certa forma.
+ Felizmente, a propriedade "justify-content" tem algumas 
+opções para fazer isso. Mas primeiro, tem algumas 
+terminologias importantes para entender antes de ver essas
+opções.
+
+ Relmentre q definir um flex container como um lugar de linha
+o flex items ficam lado-a-lado da esquerda-pra-direita.
+Um container flex define como um lugar coluna o flex item
+em um empilhamento vertical de cima-pra-baixo. Para cara,
+a direção o flex items são arranjado é chamados de (main axis).
+Para uma linha, isso é uma linha horizontal que corta por
+cada item. E para uma column, o main axis é uma linha 
+vertical pelos items.
+
+ Tem algumas muitas opções para como espaçar flex items 
+pela linha q é a main axis. Um dos mais comumente usados é
+"justify-content: center;" q alinha todos os items flex
+para dentro do centro o flex container. Outra opção inclui:
+
+- "flex-start" => alinha items para o começo de um container
+flex. Para uma linha, ela empurrados o items para a esquerda do
+container. Para uma coluna, ela empurra os items para o topo
+do container. Esse é o alinhamento padrão se não for
+especificado "justify-content".
+- "flex-end" => alinha items para o fim do flex container.
+Para uma linha, ele empurra items para a direita do container.
+Para uma coluna, ele empurra items para baixo do container.
+- "space-between" => alinha items para o centro do main
+axis, com um espaço extra colocado entre os items. O primeiro
+e último items são empurrados para a maior borda do flex
+container. Por exemplo, em uma linha o primeiro item é
+contra o lado da esquerda do container, o último item é contra
+o lado da direita do container, depois o espaço sobrando é 
+distribuido igualmente entre outros items.
+- "space-around" => similar ao "space-between" mas o primeiro e
+últimos items não são travados para as bordas do container,
+o espaço é distribuido em torno de todos os items com a 
+metade do espaço em qualquer fim do container flex.
+- "space-evenly" => Distribui espaços igualmente entre o
+flex items com um espaço cheio em qualquer fim do container
+flex.
+
+<style>
+  #box-container {
+    background: gray;
+    display: flex;
+    height: 500px;
+    justify-content: center;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 25%;
+    height: 100%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 25%;
+    height: 100%;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ Use a propriedade justify-content em tweet incorporado /
+
+ O último desafio mostrou um exemplo de uma propriedade
+ "justify-content". Para o tweet incorporado, essa propriedade
+ pode ser aplicado para alinhar items no elemento ".profile-name".
+
+ <style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  header, footer {
+    display: flex;
+    flex-direction: row;
+  }
+  header .profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  header .profile-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+  }
+  header .follow-btn {
+    display: flex;
+    margin: 0 0 0 auto;
+  }
+  header .follow-btn button {
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  header h3, header h4 {
+    display: flex;
+    margin: 0;
+  }
+  #inner p {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  #inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+  }
+  footer .stats {
+    display: flex;
+    font-size: 15px;
+  }
+  footer .stats strong {
+    font-size: 18px;
+  }
+  footer .stats .likes {
+    margin-left: 10px;
+  }
+  footer .cta {
+    margin-left: auto;
+  }
+  footer .cta button {
+    border: 0;
+    background: transparent;
+  }
+</style>
+<header>
+  <img src="https://freecodecamp.s3.amazonaws.com/quincy-twitter-photo.jpg" alt="Quincy Larson's profile picture" class="profile-thumbnail">
+  <div class="profile-name">
+    <h3>Quincy Larson</h3>
+    <h4>@ossia</h4>
+  </div>
+  <div class="follow-btn">
+    <button>Follow</button>
+  </div>
+</header>
+<div id="inner">
+  <p>I meet so many people who are in search of that one trick that will help them work smart. Even if you work smart, you still have to work hard.</p>
+  <span class="date">1:32 PM - 12 Jan 2018</span>
+  <hr>
+</div>
+<footer>
+  <div class="stats">
+    <div class="Retweets">
+      <strong>107</strong> Retweets
+    </div>
+    <div class="likes">
+      <strong>431</strong> Likes
+    </div>
+  </div>
+  <div class="cta">
+    <button class="share-btn">Share</button>
+    <button class="retweet-btn">Retweet</button>
+    <button class="like-btn">Like</button>
+  </div>
+</footer>
+
+/ Alinhe elementos usando align-items Property /
+ 
+ A propriedade "align-items" é similar para "justify-content".
+Relembre que a propriedade "justify-content" alinha items flex
+pelo main axis. Para linhas, o main axis é uma linha
+horizontal e para colunas é a linha vertical.
+
+ Flex containers também tem a (cross axis) que é o oposto
+do main axis. Para linhas, o cross axis é vertical e para
+colunas, o cross axis é horizontal.
+
+ CSS oferece a propriedade "align-items" para alinhar flex
+items pelo cross axis. Para uma linha, ele fala pro CSS
+como empurrar o item em uma linha inteira acima ou abaixo
+com um container. E para uma coluna, como empurrar todos 
+os items esquerda ou direita com o container.
+
+Os diferentes valores disponiveis para "align-items" incluem:
+
+- "flex-start" => alinha items para o começo do flex container.
+Para linhas, ele alinha items para o topo do container. Para
+colunas, ele alinha items para esquerda do container.
+- "flex-end" => alinha items para o fim do flex container.
+Para linhas, ele alinha items para baixo do container. Para
+colunas, ele alinha items para a direita do container.
+- "center" => alinha items para o centro. Para linhas, ele
+alinha items verticalmente(epaços iguais acima e abaixo items).
+Para colunas, ele alinha horizontamente eles(espaços iguais
+para esquerda e direita dos items).
+- "stretch" => alonga items para preencher o flex container.
+Por exemplo, items linhas são alongados para preencher o 
+flex container top-to-bottom. Esse é o valor padrão se n
+for especificado valor "align-items".
+- "baseline" => alinha items para suas baselines. Baseline
+é um conceito de texto, pense nisso como a linha que as 
+letras ficam em cima.
+
+<style>
+  #box-container {
+    background: gray;
+    display: flex;
+    height: 500px;
+    align-items: center;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 200px;
+    font-size: 24px;
+    align-items: center;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 200px;
+    font-size: 18px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"><p>Hello</p></div>
+  <div id="box-2"><p>Goodbye</p></div>
+</div>
+
+/ Use a propriedade align-items no tweet incorporado /
+ 
+ O último desafio apresentou a propriedade "align-items"
+e deu um exemplo. Essa propriedade pode ser aplicada para
+uns poucos elementos tweets incorporados para alinha o flex
+items dentro deles.
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  header, footer {
+    display: flex;
+    flex-direction: row;
+  }
+  header .profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+  }
+  header .profile-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+  }
+  header .follow-btn {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+  }
+  header .follow-btn button {
+    border: 0;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  header h3, header h4 {
+    display: flex;
+    margin: 0;
+  }
+  #inner p {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  #inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+  }
+  footer .stats {
+    display: flex;
+    font-size: 15px;
+  }
+  footer .stats strong {
+    font-size: 18px;
+  }
+  footer .stats .likes {
+    margin-left: 10px;
+  }
+  footer .cta {
+    margin-left: auto;
+  }
+  footer .cta button {
+    border: 0;
+    background: transparent;
+  }
+</style>
+<header>
+  <img src="https://freecodecamp.s3.amazonaws.com/quincy-twitter-photo.jpg" alt="Quincy Larson's profile picture" class="profile-thumbnail">
+  <div class="profile-name">
+    <h3>Quincy Larson</h3>
+    <h4>@ossia</h4>
+  </div>
+  <div class="follow-btn">
+    <button>Follow</button>
+  </div>
+</header>
+<div id="inner">
+  <p>I meet so many people who are in search of that one trick that will help them work smart. Even if you work smart, you still have to work hard.</p>
+  <span class="date">1:32 PM - 12 Jan 2018</span>
+  <hr>
+</div>
+<footer>
+  <div class="stats">
+    <div class="Retweets">
+      <strong>107</strong> Retweets
+    </div>
+    <div class="likes">
+      <strong>431</strong> Likes
+    </div>
+  </div>
+  <div class="cta">
+    <button class="share-btn">Share</button>
+    <button class="retweet-btn">Retweet</button>
+    <button class="like-btn">Like</button>
+  </div>
+</footer>
+
+/ Use a propriedade flex-wrap para agrupar uma linha ou
+						coluna
+ 
+ CSS flexbox tem uma caracteristica para dividir um flex
+item em multiplas linhas(ou colunas). Por padrão, um flex
+container irá encaixar todos os flex items juntos. Por 
+exemplo, uma linha irá ser toda em uma linha.
+
+ Contudo, usando a propriedade "flex-wrap" fala pro CSS
+para agrupar items. Isso significa mover items extra em uma
+nova linha ou coluna. O break point de onde o agrupamento
+acontece depende do tamanho dos items e do tamanho do 
+container.
+
+CSS também tem opções para a direção do agrupamento:
+- "nowrap" => esse é a definição padrão, e não agrupa items.
+- "wrap" => agrupa items em multiplas linhas do top-to-bottom
+se eles são em linha e da left-to-right se eles são colunas.
+- "wrap-reverse" => agrupa items em multiplas linhas do
+bottom-to-top se eles são em linha e right-to-left se
+eles estão em colunas.
+
+<style>
+  #box-container {
+    background: gray;
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 25%;
+    height: 50%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 25%;
+    height: 50%;
+  }
+  #box-3 {
+    background-color: violet;
+    width: 25%;
+    height: 50%;
+  }
+  #box-4 {
+    background-color: yellow;
+    width: 25%;
+    height: 50%;
+  }
+  #box-5 {
+    background-color: green;
+    width: 25%;
+    height: 50%;
+  }
+  #box-6 {
+    background-color: black;
+    width: 25%;
+    height: 50%;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+  <div id="box-3"></div>
+  <div id="box-4"></div>
+  <div id="box-5"></div>
+  <div id="box-6"></div>
+</div>
+
+/ Use a propriedade flex-shrink pra encolher items /
+
+ De longe, todas as propriedades nos desafios aplicam para
+o flex container(o pai do flex items). Contudo, tem muitas
+propriedades úteis para flex items.
+
+ O primeira propriedade é "flex-shrink". Quando usada, ela
+permite um item encolher se o container é mt pequeno. Items
+encolhem quando a largura do container pai é melhor que a
+largura combinada de todos os flex items com ele.
+
+ A propriedade "flex-shrink" recebe numeros como valores.
+Quanto maior o numero, maior ele irá encolher comparado 
+com outros items no container. Por exemplo, se um item tem
+um valor de "flex-shrink" de "1" e o outro tem o valor de 
+"flex-shrink" de "3", o q tem o valor de "3" irá encolher
+três vezes mais que o outro.
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    width: 100%;
+    height: 200px;
+    flex-shrink: 1;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 100%;
+    height: 200px;
+    flex-shrink: 2;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ Use a propriedade flex-grow para expandir items /
+
+ A propriedade oposta de "flex-shrink" é a "flex-grow".
+Relembre que "flex-shrink" controla o tamanho do item quando
+o container encolhe. A propriedade "flex-grow" controla o 
+tamanho do item quando o container pai expande.
+
+ Usando um exemplo similar do último desafio, se um item
+tem um valor de "flex-grow" de "1" e o outro tem o valor
+de "3" o que tem o valor de "3" crescerá três vezes mais 
+que o outro.
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+
+  #box-1 {
+    background-color: dodgerblue;
+    height: 200px;
+    flex-grow: 1;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    height: 200px;
+    flex-grow: 2;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ Use a propriedade flex-basis para definir o tamanho 
+					inicial de um item
+
+ A propriedade "flex-basis" especifica o tamanho inicial 
+do item antes do CSS fazer os ajustes com "flex-shrink" ou
+"flex-grow".
+
+ A unidade usada pela propriedade "flex-basis" são os mesmos
+de outras propriedades de tamanho(px, em, %, etc.). O valor 
+"auto" aumenta o item baseado no conteudo.
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+
+  #box-1 {
+    background-color: dodgerblue;
+    height: 200px;
+    flex-basis: 10em;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    height: 200px;
+    flex-basis: 20em;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ Use a propriedade abreviada flex /
+ 
+ Tem uma abreviação disponivel para definir muitas 
+propriedaes flex de uma vez. As propriedades "flex-grow",
+"flex-shrink", e "flex-basis" podem ser todas definas juntas
+usando a propriedade "flex".
+
+ Por exemplo, "flex: 1 0 10px;" irá definir o item para 
+"flex-grow: 1;", "flex-shrink: 0;", e "flex-basis: 10px;".
+
+A definição padrão da propriedade são: "flex: 0 1 auto;".
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    flex: 2 2 150px;
+    height: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    flex: 1 1 150px;
+    height: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ Use a propriedade order para Rearranjar items /
+
+ A propriedade "order" é usada para falar pro CSS a ordem
+de como o item flex aparece em um flex container. Por padrão,
+items irão aparecer na mesma ordem que eles vem do código
+HTML. A propriedade recebe numeros como valres, e numeros
+negativos podem ser usados.
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    order: 2;
+    height: 200px;
+    width: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    order: 1;
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
+/ use a propriedade align-self /
+
+ A propriedade final para flex items é "align-self". Essa
+propriedade permite vc ajustar cada item alinhando-o 
+individualmente, invés de defini-los todos de uma vez.
+Isso é útil desde outra tecnica de ajuste comum usando a
+propriedade CSS "float", "clear", e "vertical-align" não
+funcionam em items flex.
+
+"align-self" aceita os msms valores como "align-items" e 
+irá sobrescrever qualquer valor definido por propriedade
+"align-items".
+
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    align-self: center;
+    height: 200px;
+    width: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    align-self: flex-end;
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+
