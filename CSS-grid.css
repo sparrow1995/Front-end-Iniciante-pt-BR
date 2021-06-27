@@ -1,0 +1,1089 @@
+/* Crie seu primeiro CSS grid /
+
+ Torne qualquer elemento HTML em um grid container definindo
+sua propriedade "display" para "grid". Isso da a vc a abilidade
+de usar todas as outras propriedades associadas com CSS Grid.
+
+NOTE: Em CSS Grid, o elemento pai é referido para como o container
+e seus filhos são chamados items.
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    /* Only change code below this line 
+    display: grid;
+    
+    /* Only change code above this line 
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+/ Adicione colunas com grid-template-columns /
+
+ Simplesmente criar um elemento grid não te levará mt longe.
+Vc precisa definir a estrutura do grid também. Para add algumas
+colunas para o grid, use a propriedade grid-template-columns
+em um container grid como demonstrado abaixo: ;
+
+.container {
+  display:  grid;
+  grid-template-columns: 50px 50px;
+}
+
+ Isso irá te dar um grid de duas colunas q tem 50px cada. O
+número de parametros dados para a propriedade grid-template-columns
+indica o numero de colunas no grid, e o valor de cada parametro
+indica a largura de cada coluna.
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line
+    grid-template-columns: 100px 100px 100px;
+    
+    /* Only change code above this line   }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+/ Adicione linhas com grid-template-rows /
+ 
+ A grade que vc criou no ultimo desafio irá definir o número
+de linhas automaticamente. Para ajustar as linhas manualmente,
+use a propriedade "grid-template-rows" da msm forma que vc 
+usou "grid-template-columns" no desafio passado.
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    /* Only change code below this line /
+    grid-template-rows: 50px 50px;
+    
+    /* Only change code above this line /
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+/ Use CSS unidade de grid para mudar o tamanho de colunas
+                      e linhas
+
+ Vc pode usar unidades absolutas e relativas como "px" e "em"
+em CSS Grid para definir o tamanho de linhas e colunas.
+Assim como vc pode usar essas: 
+
+- "fr" => define a coluna ou linha para a fração de espaço
+disponivel.
+- "auto" => define coluna ou linha para a largura ou altura
+do seu conteudo automaticamente.
+- "%" => ajusta a coluna ou linha para a porcentagem do seu
+container.
+
+Aqui como o que gera o resultado anterior: 
+
+grid-template-columns: auto 50px 10% 2fr 1fr;
+
+ Os fragmentos criaram cinco colunas. A primeira coluna é como
+amplo como seu conteudo, a segunda coluna é 50px, a terceira
+é 10% do container, e para as ultimas duas colunas; o espaço
+restante é dividido em três seções, dois são alocados para
+a quarta coluna, e um para a quinta.
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line /
+
+    grid-template-columns: 1fr 100px 2fr;
+
+    /* Only change code above this line /
+    grid-template-rows: 50px 50px;
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+/ Crie um espaço na coluna usando grid-column-gap /
+
+ Até agr em grids vc criou, as colunas que vc criou foram 
+todas pressionadas umas contra as outras. Algumas vezes vc 
+precisa de espaço entre as colunas. Para adicionar espaço
+entre elas, use a propriedade grid-column-gap dessa forma: 
+
+grid-column-gap: 10px;
+
+ Isso cria um espaço em branco de 10px entre todas suas 
+colunas.
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Only change code below this line /
+    grid-column-gap: 20px;
+   
+    /* Only change code above this line /
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+/ Crie espaço entre linhas usando grid-row-gap /
+
+ Vc pode adicionar espaço entre linhas de uma grade usando
+"grid-row-gap" da msm forma que vc adicionou para colunas.
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Only change code below this line /
+
+    grid-row-gap: 5px;
+    /* Only change code above this line /
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+/ Adicione espaços mais rapido com grid-gap /
+
+ "grid-gap" é uma propriedade abreviada para "grid-row-gap"
+e "grid-column-gap" dos dois desafios passados que é mais
+conveniente de usar. Se "grid-gap" não tem um valor, ele irá
+criar um espaço entre todas as linhas e colunas. Contudo,
+se tiver dois valores, ele irá usar o primeiro valor para definir
+o espaço entre linhas e o segundo valor para colunas.
+
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Only change code below this line  /
+
+    grid-gap: 10px 20px;
+    /* Only change code above this line /
+  }
+</style>
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+/ Use grid-column para controlar o espaçamanto /
+
+ Direto ao ponto, todas as propriedades q foram discussadas
+são para grid containers. A propriedade "grid-column" é a
+primeira paara uso somente em grid items.
+
+ As linhas hipoteticas horizontais e verticais que criam uma
+grade são referidas para como lines. Essas linhas são 
+numeradas começando com 1 e no canto esquerdo do topo e
+move para a direita da coluna e desce por linhas, contando
+para cima.
+
+ Para controlar o numero de colunas um item irá consumir,
+vc pode usar a propriedade "grid-column" em conjunção com
+o numero de linhas que vc quiser o item para começar e parar.
+
+Exemplo: 
+
+grid-column: 1 / 3;
+
+ Isso irá fazer o item começar na primeira linha vertical
+do grid na esquerda e alcançar a 3rd linha do grid, consumindo
+duas colunas.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    /* Only change code below this line */
+    grid-column: 2 / 4;
+
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Use grid-row para controlar espaçamento /
+
+ Ok, vc pode fazer items consumir multiplas linhas como vc
+fez com colunas. Vc define linhas horizontais que vc quiser
+em um item para começar e parar usando a propriedade
+"grid-row" na grade do item.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    grid-column: 2 / 4;
+    /* Only change code below this line */
+    grid-row: 2 / 4;
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Alinhe um item horizontalmente usando justify-self /
+
+ Em CSS Grid, o conteudo de cada item é localizado em uma
+caixa que é referida como "cell". Vc pode alinhar a posição
+do conteudo com sua celula horizontalmente usando a 
+propriedade justify-self num grid item. Por padrão, essa
+propriedade tem o valor de alongamento, q irá fazer o conteudo
+preencher toda a largura da celula. Essa propriedade CSS Grid
+aceita outros valores como bem:
+
+- "start" => alinha o conteudo para a esquerda da celula.
+- "center" => alinha o conteudo no centro da celula.
+- "end" => alinha o conteudo para a direita da celula.
+
+<style>
+  .item1{background: LightSkyBlue;}
+
+  .item2 {
+    background: LightSalmon;
+    /* Only change code below this line */
+
+    justify-self: center;
+    /* Only change code above this line */
+  }
+
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Alinha um item verticalmente usando align-self /
+
+ Assim como vc pode alinhar um item horizontalmente, tambem
+existe uma maneira de alinhar um item verticalmente. Para
+fazer isso, vc usa a propriedade "align-self" num item. Essa
+propriedade aceita tudo de alguns valores como "justify-self"
+do ultimo desafio.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+
+  .item3 {
+    background: PaleTurquoise;
+    /* Only change code below this line */
+    align-self: end;
+    
+    /* Only change code above this line */
+  }
+
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Alinha tudo items horizontalmente usando justify-items /
+
+ Algumas vezes vc precisa todos os items no seu CSS Grid para
+compartilhar o msm alinhamento. Vc pode usar a propriedade
+aprendida anteriormente e alinhar eles individualmente, ou 
+vc pode alinhar eles todos de uma vez só horizontalmente
+usando "justify-items" em seu grid container. Essa propriedade
+pode aceitar todos os msm valores q vc aprendeu sobre nos
+ultimos dois desafios, a diferença é q ele moverá todos os
+items em nossa grade para o alinhamento desejado.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    /* Only change code below this line */
+
+    justify-items: center;
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Alinhe todos items verticalmente usando align-items /
+ 
+ Usando a propriedade "align-items" num grid container irá
+definir o alinhamento vertical para todos os items em nosso
+grid.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    /* Only change code below this line */
+
+    align-items: end;
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Divida o Grid em uma Template Area /
+
+ Vc pode agrupar celulas do seu grid juntas em uma area e dar
+um nome personalizado. Faça isso usando "grid-template-areas"
+no container como isso:
+
+grid-template-areas:
+  "header header header"
+  "advert content content"
+  "footer footer footer";
+
+ O código acima mescla três celulas do topo em uma area chamada
+"header", as três celulas de baixo na area "footer", e faz
+duas areas na linha do meio; "advert" e "content". 
+NOTE: toda palavra no codigo representa uma cell e cada par
+de quotation marks representa uma linha. Em adição para 
+custom labels, vc pode usar um period(.) para designar uma 
+celular vazia em um grid.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+    /* Only change code below this line */
+      "header header header"
+      ". content content"
+      "footer footer footer";
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Coloque items em Grid Areas usando a propriedade grid-area /
+
+ Depois de criar uma area template para seu grid container,
+como mostrado em desafios anteriores, vc pode colocar um item 
+em sua area personalizada referenciando o nome que vc deu a 
+ele. Para fazer isso, use a propriedade "grid-area" em um item
+dessa forma:
+
+.item1 {
+  grid-area: header;
+}
+
+ Isso faz o grid saber q vc precisa q a class "item1" va para
+a area chamada "header". Nesse caso, o item irá usar a linha
+inteira de cima pq a linha inteira é chamada de header area.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    /* Only change code below this line */
+    grid-area: footer;
+    
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+      "header header header"
+      "advert content content"
+      "footer footer footer";
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Use grid-area sem criar uma area Template /
+
+ A propriedade "grid-area" q vc aprendeu no ultimo desafio
+pode ser usada de outra forma. Se seu grid n ter uma area 
+template para referencia, vc pode criar uma area no voador
+para um item ser colocado assim:
+
+item1 { grid-area: 1/1/2/4; }
+
+ Isso pe usando os numeros das linhas vc aprendeu sobre mais
+cedo para definir onde a area para esse item será. O numero
+no exemplos acima representa esses valores:
+
+grid-area: horizontal line start at / vertical line to start at / horizontal line to end at / vertical line to end at;
+
+Então o item no exemplo irá consumir a linha entre linhas 
+1 e 2, e as conlunas entre linhas 1 e 4.
+
+------------------------------------------------------------
+
+Usando a propriedade "grid-area", coloque o elemento com a 
+classe "item5" entre a terceira e quarta linha horizontal e
+entre a primeira e quarta linha vertical.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    /* Only change code below this line */
+
+    grid-area: 3/1/4/4;
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Reduza repetição usando a função repeat /
+
+ Quando vc usou "grid-template-columns" e "grid-template-rows"
+para definir a estrutura de um grid, vc entra um valor para 
+cada linha ou coluna q vc criou.
+
+ Vms dizer q vc precisa um grid com 100 rows de uma msm altura.
+Não é mt pratico para inserir 100 valores individualmente.
+Felizmente, existe uma melhor forma - usando "repeat" function
+para especificar o numero de vezes vc quer coluna ou linha
+para ser repetida, seguida por uma virgula o valor q vc quer
+repetir.
+
+Aqui um exemplo para criar 100 linhas grid, cada um com 50px tall.
+
+grid-template-rows: repeat(100, 50px);
+
+ Vc tb pode repetir multiplos valores com a repeat function
+e inserir a função entre outros valores quando definindo uma
+grid structure. Aqui como ele se parece:
+
+grid-template-columns: repeat(2, 1fr 50px) 20px;
+
+Isso se traduz para:
+
+grid-template-columns: 1fr 50px 1fr 50px 20px;
+
+NOTE: o "1fr 50px" é repetido duas vezes seguidos por 20px.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Limte o tamanho do item usando minmax Function /
+
+ Existe outra função built-in para usar com "grid-template-columns"
+e "grid-template-rows" chamado "minmax". Ela é usada para
+limitar o tamanho dos items quando o grid container muda o 
+tamanho. Para fazer isso vc precisa especificar a faixa de 
+tamanho aceitaval para seu item. Aqui um exemplo:
+
+grid-template-columns: 100px minmax(50px, 200px);
+
+ No codigo acima, "grid-template-columns" é definido para 
+criar duas colunas; a primeira é 100px wide, e a segunda tem
+uma largura minima de 50px e max de 200px.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Crie layouts flexiveis usando auto-fill /
+
+ A função repeat vem com uma opção chamada "auto-fill". Ela
+permite que vc insira automaticamente quantas linhas ou 
+colunas dos seus desejados tamanhos possivelmente dependendo
+do tamanho do container. Vc pode criar layouts flexiveis 
+quando combinando "auto-fill" com "minmax", dessa forma:
+
+repeat(auto-fill, minmax(60px, 1fr));
+
+ Quando o container muda o tamanho, a definição mantem inserida
+60px columns e alarga eles até q possa inserir algum outro.
+NOTE: Se seu containet n pode caber todos seus items em uma
+linha, ele irá move-los para baixo para uma nova.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+
+    grid-template-columns: repeat(auto-fill , minmax(60px, 1fr));
+
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .container2 {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: Silver;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(60px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+<div class="container2">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Crie layouts flexiveis usando auto-fit /
+
+ "auto-fit" funciona da msm forma que "auto-fill". A unica
+diferença é q quando o tamanho do container excede o tamanho
+de todos os items combinados, "auto-fill" mantem inserido
+linhas vazias ou colunas e empurra items para o seu lado,
+enquanto "auto-fit" colapsa essas linhas vazias ou colunas
+e alongam seus items para caber no tamanho do container.
+
+NOTE: Se seu container n pode caber todos os items em uma
+só linha, ele irá move-los para baixo para uma nova.
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .container2 {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: Silver;
+    display: grid;
+    /* Only change code below this line */
+
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+<div class="container2">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+/* Use media Queries para criar layouts Responsivos /
+
+ CSS grid pode ser uma forma facil de fazer seu site mais 
+responsivas usando media queries para rearranjar grid areas,
+mude dimensões de um grid, e rearranje os lugares do item.
+
+ No passado, quando a janela de exibição largura é 300px ou
+mais, o numero de colunas mudam de 1 para 2. O anuncio de 
+area depois ocupada a coluna da esquerda completamente.
+
+<style>
+  .item1 {
+    background: LightSkyBlue;
+    grid-area: header;
+  }
+
+  .item2 {
+    background: LightSalmon;
+    grid-area: advert;
+  }
+
+  .item3 {
+    background: PaleTurquoise;
+    grid-area: content;
+  }
+
+  .item4 {
+    background: lightpink;
+    grid-area: footer;
+  }
+
+  .container {
+    font-size: 1.5em;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 1fr auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      "header"
+      "advert"
+      "content"
+      "footer";
+  }
+
+  @media (min-width: 300px){
+    .container{
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "advert header"
+        "advert content"
+        "advert footer";
+    }
+  }
+
+  @media (min-width: 400px){
+    .container{
+      grid-template-areas:
+      /* Only change code below this line */
+        "header header"
+        "advert content"
+        "footer footer";
+      /* Only change code above this line */
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="item1">header</div>
+  <div class="item2">advert</div>
+  <div class="item3">content</div>
+  <div class="item4">footer</div>
+</div>
+
+/* Crie Grid com Grids /
+
+ Torne um elemente em um grid somente afetando o comportamento
+de seus descendentes diretos. Então tornando um descendente
+direto em um grid, vc tem um grid com um grid.
+
+ Por exemplo, definindo o "display" e "grid-template-columns"
+propriedades do elemento com "item3" class, vc cria um grid
+com seu grid.
+
+<style>
+  .container {
+    font-size: 1.5em;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      "advert header"
+      "advert content"
+      "advert footer";
+  }
+  .item1 {
+    background: LightSkyBlue;
+    grid-area: header;
+  }
+
+  .item2 {
+    background: LightSalmon;
+    grid-area: advert;
+  }
+
+  .item3 {
+    background: PaleTurquoise;
+    grid-area: content;
+    /* Only change code below this line */
+    grid-template-columns: auto 1fr;
+    display: grid;
+    /* Only change code above this line */
+  }
+
+  .item4 {
+    background: lightpink;
+    grid-area: footer;
+  }
+
+  .itemOne {
+    background: PaleGreen;
+  }
+
+  .itemTwo {
+    background: BlanchedAlmond;
+  }
+
+</style>
+
+<div class="container">
+  <div class="item1">header</div>
+  <div class="item2">advert</div>
+  <div class="item3">
+    <div class="itemOne">paragraph1</div>
+    <div class="itemTwo">paragraph2</div>
+  </div>
+  <div class="item4">footer</div>
+</div>
