@@ -1,0 +1,334 @@
+					Introduction to HTML		O que é HTML?
+ HTML é uma linha usada para descrever de forma mais simples da webpage. Ele é a marcação principal para webpages. HTML é uma abreviação para HyperText Markup Language. Quando um webbrowser como Internet Explorer, FireFox ou Chrome exibe uma webpage, o que ele realmente faz é ler e interpretar um documento HTML. Esse documento poderá ser pequeno como 10 linhas ou longo como muitas centenas, o browser não se importa - tudo que ele faz é ler seu documento.
+ E esse é o principal proposito do HTML - fazer o conteudo do HTML - documento acessiviel para os webbrowsers. Além de tornar seu conteúdo acessível ao browser, o HTML tb adiciona semântica ao conteúdo - isso significa que os navegadores e mecanismos de pesquisa sabem que tipo de conteúdo vc colocou em sua webpage, e portanto, sabem como lidar com o conteúdo.
+ Basicamente, o propósito do HTML é adicionar significado para sua webpage(alguns acreditam q o HTML deve afetar a aparência da sua webpage, mas isso é principalmente um questão de religião e examinaremos isso depois) para que o browser possa exibi-lo.
+ 								      Estrutura do HTML
+ Antes de começar a usar HTML é importante vc entender a sua estrutura. Como HTML é uma linguagem de marcação, vc usa ele para marcar partes diferentes do seu conteúdo - mais ou menos como quando vc está usando um marcador de texto.
+ 								        Elementos HTML
+ HTML é construído de elementos e esses elementos vc usa para fazer sua marcação. Abaixo é um exemplo de como vc poderia marcar um texto paragrafo regular.
+ 	<p>Esse paragrafo é parte do meu conteudo</p>
+ O que temos aqui é uma sentença("Esse paragrafo faz parte do meu conteudo") que será colocado entre <p> e </p>. Cada tag consiste de um <, uma abreviação, e um >.
+ Nesse caso, p é uma abreviação de paragrafo. Combinados, as tags <p> e o </p> criam um elemento. Cada elemento HTML começa com uma abertura tag(nesse caso, q é <p>) e mais uma tag de fechamento(q é </p>). Dentro das suas tags e abertura e fechamento está seu conteúdo atual.
+ 									Elementos Vazios
+ A maioria dos elementos HTML se parece com o elemento <p> </p>, mas alguns são oq chamamos de elementos vazios. O elemento de quebra de linha é semelhante a este:
+ 	<br />
+ Como vc pode ver, não existe uma tag de fechamento e o elemento não contém qualquer conteúdo, portanto ele é chamado um elemento vazio. Por causa dele ser um elemento vazio ele é fechado no fim da tag - q é /. Vc não precisa usar o "/" no fim do elemento vazio, mas é considerado boa pratica, então vc pode mt bem se acostumar com isso.(Como eu disse antes, a tag consiste de uma abreviação e nesse caso br significa break).
+Dica!
+  Quando o browsers ler seu documento HTML5, eles não se importam se vc escreve ou não suas tags em maiusculo ou minusculo. Mas outros desenvolvedores sim! Então é considerado boas praticas escrever todas suas tags em lowercase.
+  									Sua Primeira Webpage
+ Aqui é um exemplo de um dos documentos HTML5 mais faceis que vc pode criar. Ele começa com o HTML5 doctype, seguido de um titulo da page e depois seguido de algum conteudo, nesse caso um paragrafo unico.
+	<!DOCTYPE html>
+	<title>Seu primeiro documento HTML5</title>
+	<p>Ok, e lá vamos nóis!</p>
+ Vc deverá ter uma ideia do que isso irá parecer num browser - O titulo do documento, "Seu primeiro documento HTML5" e o texto "ok, e lá vamos nóis!" escritos na esquerda de cima da page.
+ A declaração doctype informa a todos que estão lendo o documento que o seguinte conteúdo é HTML.
+	<!DOCTYPE html>
+ Se vc já olhou a marcação de documentos HTML antes, pode ter visto uma declaração doctype muito parecida com esta:
+ 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ Até desenvolvedores profissionais copiam e colam esse doctype longo de um documento para outro - o novo simples doctype é fácil de lembrar e como não é declarada uma versão especifica, todos novas futuras caracteristas são automaticamente disponiveis para sua page.
+ 	<!DOCTYPE html>
+ 	<html>
+ 	<head>
+ 	    <title>Seu primeiro documento HTML5</title>
+ 	</head>
+ 	<body>
+ 	    <p>Ok, e lá vamos nois!</p>
+ 	</body>
+ 	</html>
+ Parabéns vc criou sua primira webpage HTML5! Vc percebeu como o elemento <p> é dentro do elemento <body>? Isso é chamado aninhamento de elementos ele é uma parte mt essencial da estrutura HTML. 
+	 								Elementos Block & Inline
+ -Block Elements => Um elemento block é renderizado, como o nome indica, como um bloco real. O elemento de bloco é tão largo quando possível, um retangular que não se quebra nas linhas, e a largura e a altura do elemento podem ser reguladas. Os elementos de block podem conter elementos embutidos e outros elementos de bloco.
+ -Inline Elements => O inline elementos são tratados como uma parte do fluxo do documento e o tamanho não deverá ser modificado manualmente. Somente inline elements podem ser contained com inline-elements. E para fazer mais confuso, inline elements são somente elementos q podem ser contained com um elemento p, e tb o <p> element é um block-element. O <p></p> element é um elemento-block, onde o <b> element é um elemento inline.(b é para bold e muda a aparencia do texto).
+Exemplo: O elemento block-level mais comumente usado é o <div>.(Div é uma abreviação de Divisão). O elemento <div>  é um block-element usado para separar diferentes tipos de conteúdo na sua webpage. Imagine vc ter duas entradas blog, consistindo da entrada atual, um titulo, seu nome, e uma data da publicação, ele poderá parecer com esse:
+	Just Another Day
+	Written by Christina
+	On January 11th
+ 
+ 	Essa é minha segunda entrada no blog, e eu só queria checar para vc
+ 
+ 	My First Blog Entry
+ 	Written by Christina
+ 	On January 10th
+ 	
+ 	Eu estou tão feliz de escrever meu primeiro blog entry -yay!
+ 
+ Como vc pode ver, existem dois blog-entries e nois dividimos eles usando um block element - nesse é escolhido um <div>, dentro do block element é outro block element, o paragrafo (<p>). Usando somente o mais necessario markup, o HTML para sua webpagr irá parecer com isso:
+ 	<!DOCTYPE html>
+ 	<html>
+	<head>
+		<title>Your first HTML5 Document</title>
+	</head>
+	<body>
+		<div>
+			<p>Just Another Day<br />
+			Written by Christina<br />
+			On January 11th
+			</p>
+			<p>This is my second blog entry, and I just wanted to check in on you
+			</p>
+		</div>
+		<div>
+			<p>My First Blog Entry<br />
+			Written by Christina<br />
+			On January 10th
+			</p>
+			<p>
+			I’m so happy to write my first blog entry – yay!
+			</p>
+		<div>
+	</body>
+	</html>
+ O elemento <div> são usado para diversificar as duas blog entries. Dentro de cada elemento <div> consiste de dois paragrafos consistindo de title & autor e a entrada atual.
+ O elemento <div> é amplamente usado como um container q pode aplicar formatos onde vc quiser na sua webpage. A limitação é q o elemento <div> não fala vc nd sobre o conteudo atual. Portanto, o navegador sabe q encontrou uma seção separada, mas não que tipo de seção. No HTML muitos novos elementos foram introduzidos e alguns deles estão aqui para substituir o uso do <div> - consulte os artigos sobre os novos elementos semânticos para se aprofundar na marcação semântica.
+ 									     Blockquotes
+ O uso do elemento <blockquote> tem sido mt diversificado, mas semanticamente ele é apropriado somente para uma coisa - marcar uma seção de sua webpage que é citada de outra fonte. Isso significa q se vc precisa fazer essas referencias extravagantes, o <blockquote> não é o elemento que vc deverá usar.
+ 									Criando seu primeiro Form
+ A tag <form> é usada para criar um form atual - ele parece isso:
+ 	<form>
+ 		Input elements
+ 	</form>
+ A tag <form> contem o conteudo do seu form. Esse conteudo é chamado de widgets, controls or fields - todos eles descrevem a msm coisa. Este conteudo é principamente de diferentes tipos(ou estados, que na verdade é a palavra correta a ser usada) de campos de entrada e um botão aqui e ali. Vamos dar uma olhada num form simples de somente dois campos input e um submit-button:
+ 	<form>
+ 	    First name: <input type="text" name="firstname" /> <br />
+ 	    Surname: <input type="text" name="surname" /> <br />
+ 	    <input type="submit" value="Submit now" />
+ 	</form>
+ Como vc pode ver, os campos input são definidos de elementos <input>. O elemento input representa um campo de dado digitado, que o usuario pode editar. o atributo type define q estado input vc está usando, nesse caso um elemento texto regular, e o nome do atributo denomina o individual input fields. O atributo type é o interrupitor principal q determina oq o elemento input realmente é.
+ O botão tb é definido usando o elemento <input> mas o valor do atributo type é "submit" como oposto para "text" em dois campos anteriores indica q esse é um botão de envio. O submit button tem um atributo adicional, value. O value do atributo value define oq o botão está indo dizer e para o nosso exemplo é escolhido "Submit now".
+ Como vc pode ter notado até agr, o elemento <input> é um elemento vazio e se fecha sozinho.
+Tip!
+ Ele é sempre bom quando vc tem a possibilidade de abreviar suas marcação sem comprometer a qualidade e vc tem a oportunidade quando vc criou um texto regular field no seu form. Vc pode omitir o tipo de atributo e o browser irá automaticamente interpretar o input field como um regular text field. Q significaq os dois elementos input irão atuar exatamente da msm forma.
+ 	<input type="text" />
+ 		<input />
+ 																Agrupando com a tag fieldset
+ Se vc tem um form grande, pode ser mt melhor agrupar os diferentes tipos de fields. Para fazer isso, vc usa o elemento <fieldset> O nome de grupos é dado pelo primeiro elemento <legend>, q é um filho do elemento <fieldset>. Uma vez que estamos nisso, quero apresentar outro elemento, o <label>. O rótulo é usado para adicionar uma legenda a cada parte do elemento q vc está coletando.
+ Agora vms ver um exemplo com esses novos elementos:
+ 	<form>
+ 		<fieldset>
+ 			<legend>Contact Details</legend>
+ 				<label for="name">Name:</label>
+ 				<input id="name"/><br />
+ 				
+ 				<label for="telephone">Telephone:</label>
+ 				<input id="telephone"/><br />
+ 				
+ 				<label for="user-email">Email:</label>
+ 				<input id="user-email"/>
+ 		</fieldset>
+ 		<fieldset>
+ 			<legend>User info</legend>
+ 				<label for="username">Username:</label>
+ 				<input id="username"/><br />
+ 				
+ 				<label for="password">Password:</label>
+ 				<input id="password"/><br />
+ 		</fieldset>
+ 		<input type="submit" value="Submit now" />
+ 	</form>
+ Por que usar o fieldset? Imagine que vc precisa add alguma coisa para esse form, talvez comida favorita. Depois vc irá agrupar diferentes tipos de comida em um novo fieldset e dar claridade para seu form. Eu tb adicionei o atributo id para o input field. Isso define esses elementos um identificador unico e nos usamos quando atribuimos labels. Usando o atributo for nois conectamos o input field e o label.
+ 																		Enviando dados
+ Até agr n discutimos como realmente enviar os dados colocados pelos users. Vc pode enviar eles para seus email address, outra page, ou seu banco de dados.
+ Qualquer q seja a opção q vc escolher, vc sempre irá ter q definir como o browser segura esse input do user. Isso é definido pelo atributo method, q pode ter um de dois valores - post ou get.
+ 	<form action="url-to-formmail-provided-by-your-ISP" method="post">
+ O valor get garante que os dados sejam codificados pelo browser em um url e post significa q os dados são enviados para um banco de dados ou seu e-mail. Isso significa q geralmente vc usará o valor post como ele é usado para envios de form.
+ A forma mais simples de segurar seu dado é enviar ele para seu email. Tudo q vc tem q fazer é o action attribute para o form element e o method attribute. O action attribute fala para o browser oq é para fazer com o conteudo do seu form e o metodo atributo fala para o browser como segura-los. Aqui um exemplo:
+ 	<form action="mailto:your@email.com" method="post">
+ 		First name: <input type="text" name="firstname" />
+ 		Surname: <input type"text" name="surname" />
+ 		<input type="submit" value="Submit now" />
+ 	</form>
+ Se vc escolher usar esse metodo vc precisa tomar cuidade q a funcionalidade depende do email-client instalado no seu users' computer. Isso significa, q n todos os usuarios irão poder usar seu form.
+ Por outro lado vc poderia usar o formmail, q eu mencionei anteriormente. Quando usando um formmail, o valor do metodo atributo devererá sempre ser post como vc esta enviando dados.
+ 																	Multiline Textboxes - The textarea tag
+ As vezes vc precisa dar oportunidade ao visitante de colocar mais q somente alguns caracteres e isso é oq o elemento <textarea> faz.
+ Como vc pode definir o tamanho de um text input field vc tem a opção de mudar o tamanho do seu textarea usando atributos rows e cols.
+Exemplo:
+	<form method="post">
+		<textarea cols="25" rows="7"></textarea>
+		<br />
+		<input type="submit" value="Submit now" />
+	</form>
+																		 Básico de Tabela
+ Tabelas HTML deveria ser usado somente para redenizar dados q naturalmente pertence a uma grade. Estou dizendo q como essas tabelas antigamente eram usadas para o layout do HTML pages e essa nunca foi a ideia. Mts webdesigners usavam tabelas de layout, mas existem duas razões para n fazer isso:
+ - É semanticamente incorreta.
+ - Tabelas são menos flexiveis q div's.
+ Os elementos da tabela são mt compreensivos, mas primeiro vc irá precisar conhecer o elemento <table>. Esse é o primeiro elemento e define q a marcação seguinte é dentro de uma tabela.
+ Quando vc está estruturando tabelas, a marcação HTML é basicamente estruturada com row e cells(note, q n existe tag para colunas, só linhas).
+ A tag para row é <tr>(abreviação para table row) e a tag para cada celula é <td>(q é para os dados da tabela, e isso é onde o atual conteudo está).
+ Antes de vc começar a escrever sua marcação para uma tabela, vc precisa saber exatamente oq ele parecerá - Isso irá fazer isso mt mais fácil para vc. Vms tentar fazer uma tabela mt simples - com tres colunas e quatro linhas.
+ 	<table border="1" width="100%">
+ 		<tr>
+ 			<td>Row 1, cell 1</td>
+ 			<td>Row 2, cell 2</td>
+ 			<td>Row 3, cell 3</td>
+ 		</tr>
+ 		<tr>
+ 			<td>Row 2, cell 1</td>
+ 			<td>Row 2, cell 2</td>
+ 			<td>Row 2, cell 3</td>
+ 		</tr>
+ 		<tr>
+ 			<td>Row 3, cell 1</td>
+ 			<td>Row 3, cell 2</td>
+ 			<td>Row 3, cell 3</td>
+ 		</tr>
+ 		<tr>
+ 			<td>Row 4, cell 1</td>
+ 			<td>Row 4, cell 2</td>
+ 			<td>Row 4, cell 3</td>
+ 		</tr>
+ 	</table>
+ Como vc pode ver, a tag <td> são aninhados dentro da tags <tr>, e isso significa, q cada cell em uma linha estaá dentro de um elemento <tr>.
+NB!
+ E pf note, q eu adicionei o atributo border para a tag <table> então vc realmente irá ver o tableborders quando vc tentar fazer o exemplo, mas vc nunca deverá fazer isso quando vc está escrevendo sua marcação - tableborder é um trabalho para CSS!
+ 																		 Colspan & Rowspan
+ A forma de marcação HTML é estruturada significa q vc em algumas linhas pode ter quatro celulas, algumas tres celulas, algumas duas e entao quarta. Em ordem para isso realmente funcionar, vc precisa usar os atributos colspan e rowspan(o valor desses atributos é sempre numero inteiro). Pode ser bastante complicado usar esses atributos, então talvez vc precise de um pouco de paciencia.
+ Usando o exemplo do ultimo capitulo teremos:
+ 	<table border="1" width="100%">
+		<tr>
+			<td colspan="2">Row 1, cell 1</td>
+			<td>Row 1, cell 2</td>
+		</tr>
+		<tr>
+			<td>Row 2, cell 1</td>
+			<td>Row 2, cell 2</td>
+			<td>Row 2, cell 3</td>
+		</tr>
+		<tr>
+			<td>Row 3, cell 1</td>
+			<td rowspan="2">Row 3, cell 2</td>
+			<td>Row 3, cell 3</td>
+		</tr>
+		<tr>
+			<td>Row 4, cell 1</td>
+			<td>Row 4, cell 3</td>
+		</tr>
+	</table>
+ Como vc pode ver, eu removi a terceira celula na row 1 e adicionei o colspan atributo para a primeira cell na row1.
+ O q vc precisa saber quando vc quer criar cells q spans pelas colunas é, q o span é semprepara direita.
+ Para criar uma celula spans pelas rows, vc tem q lembrar q para q quando vc span across rows, o span é sempre abaixo. Isso significa, q vc tem q remover a celula nas seguintos linhas ou se não a tabela não está parecendo seu pretendido.
+ 																		Thead & tbody
+ Se desejarm vc pode deixar suas tabelas assim, mas se vc aprecia conteúdo altamente estruturado semanticamente, tenho o prazer de apresentá-lo ao elemento <thead>. O elemento <thead> estrutura os títulos em sua tabela e informa aos navegadores o que, por exemplo, cada coluna contém. O elemento <tbody> estrutura todo o conteúdo para q o navegador saiba qual é o conteúdo real da tabela. Usando o msm exemplo de antes, os elementos <thead> e <tbody> devem ser usados assim:
+ 	<table border="1" width="100%">
+		<thead>
+			<tr>
+				<td>Row 1, cell 1</td>
+				<td>Row 1, cell 2</td>
+				<td>Row 2, cell 3</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Row 2, cell 1</td>
+				<td>Row 2, cell 2</td>
+				<td>Row 2, cell 3</td>
+			</tr>
+			<tr>
+				<td>Row 3, cell 1</td>
+				<td>Row 3, cell 2</td>
+				<td>Row 3, cell 3</td>
+			</tr>
+			<tr>
+				<td>Row 4, cell 1</td>
+				<td>Row 4, cell 2</td>
+				<td>Row 4, cell 3</td>
+			</tr>
+		</tbody>
+	</table>
+ Além disso, há mais um elemento q gostaria de apresentar a vc - o elemnto <th>. Esta tag, q significa título da célula da tabela, deve ser usada em vez do elemento <td> quando o conteúdo da célula for um título em vez dos dados reais da célula.
+ Isso significa q é a escolha é óbia dentro do elemento <thead>(q deverá conter a primeira linha da sua tabela) mas vc pode tb usar isso para a primeira coluna para indicar o headings - table row headers.
+ Vms dar uma olhada - ela é mt similar ao anterior mas eu tenho usado o significado conteudo para fazer limpar para vc como usar o elemento <th>.
+ 	<table border="1" width="100%">
+		<thead>
+			<tr>
+				<th>Fruits</th>
+				<th>Vitamin A</th>
+				<th>Vitamin C</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Apples</th>
+				<td>98 ui</td>
+				<td>8.4 mg</td>
+			</tr>
+			<tr>
+				<th>Oranges</th>
+				<td>295 ui</td>
+				<td>69.7 mg</td>
+			</tr>
+			<tr>
+				<th>Bananas</th>
+				<td>76 ui</td>
+				<td>10.3 mg</td>
+			</tr>
+		</tbody>
+	</table>
+ Como vc provavelmente notará quando experimentar os exemplos por conta própria, não verá nenhuma diferença. Isso ocorre pq thead, tbody e os tableheadings apenas adicionam valor semântico. Mas vc sempre pode usar CSS para estilizar sua tabela e então esses elementos tornal o estilo mais fácil!
+ 																		Mudando largura da coluna
+ Agr q vc usou toda a semântica certa, vc pode querer alterar a largura de cada coluna - a partir de agr, cada coluna tem 33% de largura. Digamos q queremos q a primeira coluna seja 40% da tabela e as duas colunas restantes sejam 30%(como 40% + 30% + 30% = 100%).
+ Para fazer isso, usamos o elemento <col>. Este elemento deve ser colocado entre a tag <table> e a tag <thead> e usamos o atributo style para definir a largura das colunas.
+ O elemento <col> é um elemento de fechamento automático e vc precisa de um para cada coluna de sua tabela. Vejamos um exemplo:
+ <table border="1" width="100%">
+	<col style="width:40%">
+	<col style="width:30%">
+	<col style="width:30%">
+	<thead>
+	<tr>
+		<th>Fruits</th>
+		<th>Vitamin A</th>
+		<th>Vitamin C</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th>Apples</th>
+		<td>98 ui</td>
+		<td>8.4 mg</td>
+	</tr>
+	<tr>
+		<th>Oranges</th>
+		<td>295 ui</td>
+		<td>69.7 mg</td>
+	</tr>
+	<tr>
+		<th>Bananas</th>
+		<td>76 ui</td>
+		<td>10.3 mg</td>
+	</tr>
+	</tbody>
+</table>
+																	 		Tag article
+ O elemento article é um do novos elementos q forma introduzidos com HTML5. como este é um elemento novo, houve alguma confusão sobre como usá-lo. Mas parece haver um acordo de q vc usa o elemento <article> ao marcar o conteúdo, isso faz sentido por si só. O q isso significa? Isso significa q vc pode usar o elemento <article> ao marcar uma página "sobre mim", uma entrada de blog e tb todos os comentários em sua entrada de blog. Mas vc n deve usar o elemento <article> ao redor de cada parágrafo - o ponto é, tudo o q vc colocar no elemento <article> deve fazer sentido por si só.
+ Usando o artigo de farinha, o elemento article deve ser usado assim(observe q substituí mt do conteúdo real por três pontos, para q o exemplo n ocupe mt espaço):
+ <!DOCTYPE html>
+	<body>
+	<article>
+		<div id="header">
+			<h1>All About Flour</h1>
+			...
+		</div>
+		<div id="content">
+			<h2>The Two Types of Wheat</h2>
+				<p>There are…</p>
+			<h2>All-Purpose Flour</h2>
+				<p>All-purpose …</p>
+			...
+		</div>
+	</article>
+	</body>
+</html>
+ Como vc pode ver, o elemento <article> contem a <div id="header"> e o <div id="content"> como o conteúdo nesses dois <div>'s podem ser lidos como um artigo inteiro. Eu n inclui o <div id="footer"> como o conteúdo no elemento não tem nada com o atual artigo q nois continuamos usando um monte de div-elements nesse exemplo.
+ As vezes vc precisa mais q alguns exemplos e eu incluir outro: Usando o blog-entry example de capitulos anteriores, vc irá usar o elemento article abraçando cada entrada de blog como esse:
+	<article>
+		<h1>Just Another Day</h1>
+		<p>Written by Christina<br />
+		On January 11th </p>
+		<p class="content">This is my second blog entry, and I just wanted to check in on you </p>
+	</article>
+	<article>
+		<h1>My First Blog Entry</h1>
+		<p>Written by Christina<br />
+		On January 10th </p>
+		<p class="content">I’m so happy to write my first blog entry – yay!</p>
+	</article>
